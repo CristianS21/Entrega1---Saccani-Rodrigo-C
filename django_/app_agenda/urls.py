@@ -3,6 +3,6 @@ from app_agenda import views
 
 urlpatterns = [
   
-    path('probando/', views.probar_template),
+    path('', views.inicio),
     
 ]
