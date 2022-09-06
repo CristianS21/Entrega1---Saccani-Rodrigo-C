@@ -55,7 +55,7 @@ ROOT_URLCONF = 'django_.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['C:/Users/Thinkpad T440p/OneDrive/Escritorio/BioAgenda/django_/app_agenda/templates/'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
