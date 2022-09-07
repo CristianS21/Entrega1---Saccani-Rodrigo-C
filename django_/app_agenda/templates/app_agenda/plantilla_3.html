@@ -13,4 +13,8 @@ A continuación podrás generar un nuevo ingreso.
 <a href="{% url 'form_plantas' %}">"Añadir planta"</a>
 </div>
 
+{%for planta in plantas%}
+<span>{{planta.especie}} - {{planta.fecha_de_adopcion}}</span>
+{%endfor%}
+
 {% endblock contenido_base %}

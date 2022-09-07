@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from app_agenda.models import Mascota
+from app_agenda.models import Mascota,Planta
 from django.shortcuts import render, HttpResponse
 from typing import Dict
 from app_agenda.forms import form_mascotas,form_plantas
@@ -29,6 +29,13 @@ def formulario_mascota (request):
         formulario= form_mascotas()
     return render (request, "app_agenda/form_mascota.html",{"formulario":formulario})
 
+
+def buscar_mascota (request):
+    mascotas= Mascota.objects.all()
+    return render (request,"app_agenda/plantilla_2.html", {"mascotas":mascotas})
+
+
+
 def formulario_plantas (request):
     if request.method =='POST':
         formulario=form_plantas(request.POST)
@@ -43,7 +50,9 @@ def formulario_plantas (request):
         formulario= form_plantas()
     return render (request, "app_agenda/form_plantas.html",{"formulario":formulario})
         
-
+def buscar_planta (request):
+    plantas= Planta.objects.all()
+    return render (request,"app_agenda/plantilla_3.html", {"plantas":plantas})
 
 
 
