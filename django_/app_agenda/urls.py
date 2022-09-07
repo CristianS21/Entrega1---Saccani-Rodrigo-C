@@ -3,7 +3,7 @@ from app_agenda import views
 
 urlpatterns = [
   
-    path('', views.inicio),
+    path('inicio/', views.inicio,name="inicio"),
     path('usuario/', views.usuario),
     path('mascotas/', views.mascotas, name="Mascota"),
     path('plantas/', views.plantas, name="Plantas"),  
