@@ -7,7 +7,6 @@ from django.shortcuts import render, HttpResponse
 def inicio (request):
     return render (request, "app_agenda/plantilla_inicio.html")
 
-
 def usuario (request):
     return render (request, "app_agenda/plantilla_1.html")
 

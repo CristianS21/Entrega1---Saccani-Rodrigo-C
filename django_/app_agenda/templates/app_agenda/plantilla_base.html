@@ -35,7 +35,9 @@
         <nav role="navigation" class="collapse navbar-collapse navbar-right">   <!--menú-->
           <ul class="navbar-nav nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Ingresar</a></li>
+            <li><a href="" >Ingresar</a></li>
+            <li><a href="{% url 'Mascota' %}" >Mascotas</a></li>
+            <li><a href="{% url 'Plantas' %}">Plantas</a></li>
 
 
           </ul>
@@ -45,7 +47,7 @@
   </div><!-- End Slide gallery -->
   {% block contenido_base %}
   {% endblock contenido_base %}
-  <h3 class="text-center"> Registrando lo importante. Cuidando lo nuestro </h3>
+  <h3 class="text-center"> Registrando lo importante. Cuidando lo nuestro. </h3>
 
   <!-- Thumbnails -->
   <div class="container thumbs">
