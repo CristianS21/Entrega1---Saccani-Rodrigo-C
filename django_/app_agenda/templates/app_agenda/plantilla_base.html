@@ -15,11 +15,11 @@
     <!--Bootshape-->
     <link href="{% static 'app_agenda/css/bootstrap.css' %}" rel="stylesheet">
    
-    {% block contenido_base %}
-    {% endblock contenido_base %}
+
 
   </head>
   <body>
+    
     <!-- Navigation bar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
       <div class="container">
@@ -43,6 +43,8 @@
       </div>
     </div><!-- End Navigation bar -->
   </div><!-- End Slide gallery -->
+  {% block contenido_base %}
+  {% endblock contenido_base %}
   <h3 class="text-center"> Registrando lo importante. Cuidando lo nuestro </h3>
 
   <!-- Thumbnails -->
