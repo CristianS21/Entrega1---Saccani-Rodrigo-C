@@ -1,3 +1,4 @@
+
 /*!
  * Bootstrap v3.0.3 (http://getbootstrap.com)
  * Copyright 2013 Twitter, Inc.
@@ -303,7 +304,7 @@ html {
 }
 
 body {
-  font-family: 'Actor';
+  font-family: 'Nunito';
   font-size: 14px;
   line-height: 1.428571429;
   color: #333333;
@@ -397,8 +398,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Actor';
-  font-weight: 500;
+
+  font-weight: 700;
   line-height: 1.1;
   color: inherit;
 }
@@ -4544,6 +4545,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   padding-bottom: 10px;
   line-height: 20px;
   color: #000;
+  font-weight: 700;
 }
 
 @media (max-width: 767px) {
