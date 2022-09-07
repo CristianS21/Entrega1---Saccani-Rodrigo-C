@@ -14,10 +14,11 @@
     
     <!--Bootshape-->
     <link href="{% static 'app_agenda/css/bootstrap.css' %}" rel="stylesheet">
-
+   
+    {% block contenido_base %}
+    {% endblock contenido_base %}
 
   </head>
-
   <body>
     <!-- Navigation bar -->
     <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -35,87 +36,54 @@
           <ul class="navbar-nav nav">
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#">Ingresar</a></li>
-  
+
+
           </ul>
         </nav>
       </div>
     </div><!-- End Navigation bar -->
+  </div><!-- End Slide gallery -->
+  <h3 class="text-center"> Registrando lo importante. Cuidando lo nuestro </h3>
 
-    <!-- Slide gallery -->
-    <div class="jumbotron">
-      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-        </ol>
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-          <div class="item active">
-            <img src="{% static 'app_agenda/imagenes/4.jpg' %} " alt="">
-            <div class="carousel-caption">
-            </div>
-          </div>
-          <div class="item">
-            <img src="{% static 'app_agenda/imagenes/2.jpg' %} " alt="">
-            <div class="carousel-caption">
-            </div>
-          </div>
-          <div class="item">
-            <img src="{% static 'app_agenda/imagenes/1.jpg' %} " alt="">
-            <div class="carousel-caption">
-            </div>
-          </div>
-        </div>
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-          <span class="glyphicon glyphicon-chevron-left"></span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-          <span class="glyphicon glyphicon-chevron-right"></span>
-        </a>
-      </div>
-    </div><!-- End Slide gallery -->
-    <h3 class="text-center"> Registrando lo importante, cuidando lo nuestro </h3>
-    <!-- Thumbnails -->
-    <div class="container thumbs">
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="{% static 'app_agenda/imagenes/icono_usuario.png' %}" alt="" class="img-circle">
-          <div class="caption">
-            <h3 class="text-center">Usuarios</h3>
-            <br>
-            <p> Con tu usuario en BioAgenda podrás organizar fácilmente la ficha médica de tu mascota y los registros vitales de tus plantas y consultarlas en el momento que lo necesites. </p>
-  
-          </div>
-        </div>
-      </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="{% static 'app_agenda/imagenes/icono_mascota.png' %}" alt="" class="img-circle">
-          <div class="caption">
-            <h3 class="text-center">Mascotas</h3>
-            <br>
-            <p>Nuestros compañeros de vida visitan regularmente a su médico veterinario. Registrar esas visitas, las vacunas recibidas, los medicamentos, y tenerlos juntos y a mano, pueden resultar de mucha utilidad.</p>
+  <!-- Thumbnails -->
+  <div class="container thumbs">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{% static 'app_agenda/imagenes/icono_usuario.png' %}" alt="" class="img-circle">
+        <div class="caption">
+          <h3 class="text-center">Usuarios</h3>
+          <br>
+          <p> Con tu usuario en BioAgenda podrás organizar fácilmente la ficha médica de tu mascota y los registros vitales de tus plantas, consultándolas en el momento que lo necesites. </p>
 
-          </div>
         </div>
       </div>
-      <div class="col-sm-6 col-md-4">
-        <div class="thumbnail">
-          <img src="{% static 'app_agenda/imagenes/icono_planta.png' %}" alt="" class="img-circle">
-          <div class="caption">
-            <h3 class="text-center">Plantas</h3>
-            <br>
-            <p>Quienes tienen plantas de colección o simplemente gustan de cuidar sus plantas con regularidad, suelen lidiar con confusiones en cuanto a fechas. BioAgenda te ayudará a organizarte. </p>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{% static 'app_agenda/imagenes/icono_mascota.png' %}" alt="" class="img-circle">
+        <div class="caption">
+          <h3 class="text-center">Mascotas</h3>
+          <br>
+          <p>Nuestros compañeros de vida visitan regularmente a su médico veterinario. Registrar esas visitas, las vacunas recibidas, los medicamentos, y tenerlos juntos y a mano, pueden resultar de mucha utilidad.</p>
 
-          </div>
         </div>
       </div>
-    </div><!-- End Thumbnails -->
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{% static 'app_agenda/imagenes/icono_planta.png' %}" alt="" class="img-circle">
+        <div class="caption">
+          <h3 class="text-center">Plantas</h3>
+          <br>
+          <p>Quienes tienen plantas de colección o simplemente gustan de cuidar sus plantas con regularidad, suelen lidiar con confusiones en cuanto a fechas. BioAgenda te ayudará a organizarte. </p>
+
+        </div>
+      </div>
+    </div>
+  </div><!-- End Thumbnails -->
     <!-- Content -->
     <div class="container">
+      <br>
       <h3 class="text-center">Bienvenidos a BioAgenda</h3>
       <br>
       <p>El proyecto de BioAgenda surgió como una iniciativa propia a raíz de una situación personal: al momento de llevar registro de mis mascotas, especialmente de sus vacunas, medicaciones pasadas, episodios destacables, me resulta imposible ya que quedaron en papeles dispersos. Con BioAgenda se pretende dar solución a esa problemática, de forma rápida, sencilla y útil.</p>

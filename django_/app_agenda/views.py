@@ -5,7 +5,7 @@ from django.shortcuts import render, HttpResponse
 
 # Create your views here.
 def inicio (request):
-    return render (request, "app_agenda/plantilla_base.html")
+    return render (request, "app_agenda/plantilla_inicio.html")
 
 
 def usuario (request):
