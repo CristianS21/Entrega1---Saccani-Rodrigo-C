@@ -1,0 +1,29 @@
+{% extends "app_agenda/plantilla_base.html" %}
+{% load static %}
+
+
+{% block contenido_base %}
+<div style="padding-top: 100px;">
+
+
+{% csrf_token %}
+<form  method="post">
+<p> NOMBRE 
+<input type="text" name="nombre">
+</p>
+<p> ESPECIE
+<input type="text" name="especie">
+</p>
+<p> SEXO
+<input type="text" name="sexo">
+</p>
+<p> FECHA DE NACIMIENTO
+<input type="date" name="fecha_de_nacimiento"> 
+</p>
+</form>
+
+<input type="submit" value="Ingresar"/>
+
+</div>
+
+{% endblock contenido_base %}
