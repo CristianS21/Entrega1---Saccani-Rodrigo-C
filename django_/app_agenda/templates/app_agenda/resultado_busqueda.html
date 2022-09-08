@@ -5,26 +5,22 @@
 <div style="padding-top: 100px;"></div>
 <div style="padding-left: 107px;">
 
-<p>Estamos buscando a: {{nombre}}</p>
-
-{% if mascotas %}
-
-<ul>
+<p>Estás buscando a: {{mascota.nombre}}</p>
 
 
-    {% for mascota in mascotas %}
 
-    <li>{{mascota.nombre}}</li>
+{% for mascota in mascotas %}
 
-    <li>{{mascota.especie}}</li>
+<li>{{mascota.nombre}}</li>
 
-    <li>{{mascota.sexo}}</li>
+<li>{{mascota.especie}}</li>
 
-    <li>{{mascota.fecha_de_nacimiento}}</li>
+<li>{{mascota.sexo}}</li>
 
-{% endfor%}
+<li>{{mascota.fecha_de_nacimiento}}</li>
+
 {% endfor%}
 
 </ul>
-{% endif%}
+
 {% endblock contenido_base %}

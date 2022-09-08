@@ -60,8 +60,8 @@ def buscar_mascotas (request):
     if request.GET["nombre"]:
 
         nombre=request.GET["nombre"]
-        mascotas= Mascota.objects.filter(nombre_icontains=nombre)
-        return render (request, "app.agenda/resultado_busqueda.html", {"mascotas":mascotas})
+        mascotas= Mascota.objects.filter(nombre=nombre)
+        return render (request, "app_agenda/resultado_busqueda.html", {"mascotas":mascotas})
         
     else: 
         respuesta= "No enviaste datos"
