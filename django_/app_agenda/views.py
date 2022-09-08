@@ -16,16 +16,19 @@ def mascotas (request):
 
 
 def formulario_mascota (request):
+    print ("1")
     if request.method =='POST':
         formulario=form_mascotas(request.POST)
-        
+        print ("2")
         if formulario.is_valid():
             data = formulario.cleaned_data       
 
             mascota1 = Mascota (nombre= data ['nombre'],especie= data ['especie'],sexo= data ['sexo'], fecha_de_nacimiento= data ['fecha_de_nacimiento'])
             mascota1.save()
             return render (request, "app_agenda/plantilla_inicio.html")
+            
     else:
+        print ("3")
         formulario= form_mascotas()
     return render (request, "app_agenda/form_mascota.html",{"formulario":formulario})
 

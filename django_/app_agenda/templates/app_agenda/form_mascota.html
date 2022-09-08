@@ -1,13 +1,13 @@
 {% extends "app_agenda/plantilla_base.html" %}
 {% load static %}
 
-
 {% block contenido_base %}
 <div style="padding-top: 100px;">
 
 
-{% csrf_token %}
-<form  method="post">
+
+<form  method='POST'>
+{% csrf_token %}    
 NUEVO INGRESO:
 <br>
 <br>
@@ -23,9 +23,11 @@ NUEVO INGRESO:
 <p> FECHA DE NACIMIENTO
 <input type="date" name="fecha_de_nacimiento"> 
 </p>
+<input type="Submit" value="Ingresar"/>
+
 </form>
 
-<input type="submit" value="Ingresar"/>
+
 
 </div>
 
