@@ -48,9 +48,13 @@ def formulario_plantas (request):
         formulario= form_plantas()
     return render (request, "app_agenda/form_plantas.html",{"formulario":formulario})
         
-def buscar_planta (request):
-    plantas= Planta.objects.all()
-    return render (request,"app_agenda/plantilla_3.html", {"plantas":plantas})
+#def buscar_planta (request):
+ #   plantas= Planta.objects.all()
+  #  return render (request,"app_agenda/plantilla_3.html", {"plantas":plantas})
+
+
+def busqueda_mascotas (request):
+    return render (request, "app_agenda/busqueda_mascotas.html")
 
 
 
