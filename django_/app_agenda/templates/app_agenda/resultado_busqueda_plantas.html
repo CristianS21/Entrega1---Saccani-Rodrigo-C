@@ -1,17 +1,18 @@
 {% extends "app_agenda/plantilla_base.html" %}
 
-
 {% block contenido_base %}
 
 <div style="padding-top: 100px;"></div>
 <div style="padding-left: 107px;">
 
-<form action ="/buscar_plantas" method ='GET'>
+{%for planta in plantas%}
 
-    <input type="text" name="especie" id="especie">
-    <input type ="submit" value="Buscar">
+<p>Estás buscando a: {{planta.especie}}</p>
+<li>{{planta.especie}}</li>
 
-</form>
+<li>{{planta.fecha_de_adopcion}}</li>
+
+{%endfor%}
 </div>
-
+</ul>
 {% endblock contenido_base %}

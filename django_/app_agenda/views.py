@@ -58,20 +58,22 @@ def busqueda_mascotas (request):
 
 def buscar_mascotas (request):
     if request.GET["nombre"]:
-
         nombre=request.GET["nombre"]
         mascotas= Mascota.objects.filter(nombre=nombre)
-        return render (request, "app_agenda/resultado_busqueda.html", {"mascotas":mascotas})
-        
+        return render (request, "app_agenda/resultado_busqueda_mascotas.html", {"mascotas":mascotas}) 
     else: 
         respuesta= "No enviaste datos"
     return HttpResponse (respuesta)
 
-
-
-
-
 def busqueda_plantas (request):
     return render (request, "app_agenda/busqueda_plantas.html")
 
+def buscar_plantas (request):
+    if request.GET["especie"]:
+        especie=request.GET["especie"]
+        plantas= Planta.objects.filter(especie=especie)
+        return render (request, "app_agenda/resultado_busqueda_plantas.html", {"plantas":plantas}) 
+    else: 
+        respuesta= "No enviaste datos"
+    return HttpResponse (respuesta)    
 

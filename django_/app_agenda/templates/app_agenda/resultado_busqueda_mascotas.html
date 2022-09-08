@@ -1,16 +1,13 @@
 {% extends "app_agenda/plantilla_base.html" %}
 
-
 {% block contenido_base %}
 <div style="padding-top: 100px;"></div>
 <div style="padding-left: 107px;">
 
-<p>Estás buscando a: {{mascota.nombre}}</p>
-
-
 
 {% for mascota in mascotas %}
 
+<p>Estás buscando a: {{mascota.nombre}}</p>
 <li>{{mascota.nombre}}</li>
 
 <li>{{mascota.especie}}</li>
@@ -20,6 +17,7 @@
 <li>{{mascota.fecha_de_nacimiento}}</li>
 
 {% endfor%}
+
 
 </ul>
 
