@@ -46,7 +46,7 @@ def formulario_plantas (request):
         if formulario.is_valid():
             data = formulario.cleaned_data       
 
-            mascota1 = Mascota (especie= data ['especie'], fecha_de_adopcion=data ['fecha_de_adopcion'])
+            mascota1 = Planta (especie= data ['especie'], fecha_de_adopcion=data ['fecha_de_adopcion'])
             mascota1.save()
             return render (request, "app_agenda/plantilla_inicio.html")
     else:
