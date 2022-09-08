@@ -11,11 +11,18 @@
 
 <ul>
 
-{% for mascota in mascotas %}
-    <li>{{nombre.mascota}}</li>
-    <li>{{nombre.especie}}</li>
-    <li>{{nombre.sexo}}</li>
-    <li>{{nombre.fecha_de_nacimiento}}</li>
+
+    {% for mascota in mascotas %}
+
+    <li>{{mascota.nombre}}</li>
+
+    <li>{{mascota.especie}}</li>
+
+    <li>{{mascota.sexo}}</li>
+
+    <li>{{mascota.fecha_de_nacimiento}}</li>
+
+{% endfor%}
 {% endfor%}
 
 </ul>
