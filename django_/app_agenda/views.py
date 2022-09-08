@@ -56,5 +56,22 @@ def formulario_plantas (request):
 def busqueda_mascotas (request):
     return render (request, "app_agenda/busqueda_mascotas.html")
 
+def buscar_mascotas (request):
+    if request.GET["nombre"]:
+
+        nombre=request.GET["nombre"]
+        mascotas= Mascota.objects.filter(nombre_icontains=nombre)
+        return render (request, "app_agenda/resultado_busqueda.html", {"mascotas":mascotas})
+
+    else: 
+        respuesta= "No enviaste datos"
+
+    return HttpResponse (respuesta)
+
+
+def busqueda_plantas(request):
+    return render (request, "app_agenda/busqueda_plantas.html")
+
+
 
 

@@ -1,0 +1,23 @@
+{% extends "app_agenda/plantilla_base.html" %}
+
+
+{% block contenido_base %}
+<div style="padding-top: 100px;"></div>
+<div style="padding-left: 107px;">
+
+<p>Estamos buscando a: {{nombre}}</p>
+
+{% if mascotas %}
+
+<ul>
+
+{% for mascota in mascotas %}
+    <li>{{nombre.mascota}}</li>
+    <li>{{nombre.especie}}</li>
+    <li>{{nombre.sexo}}</li>
+    <li>{{nombre.fecha_de_nacimiento}}</li>
+{% endfor%}
+
+</ul>
+{% endif%}
+{% endblock contenido_base %}
