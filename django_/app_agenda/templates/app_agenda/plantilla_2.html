@@ -4,18 +4,21 @@
 
 {% block contenido_base %}
 <div style="padding-top: 100px;">
+<div style="padding-left: 107px;">
 
 Bienvenido a la sección MASCOTAS. <br>
 A continuación podrás generar un nuevo ingreso o buscar una mascota.
 <br>
 <br>
+
 <a href="{% url 'form_mascotas' %}">"Añadir mascota"</a><br>
 <a href="">"Buscar mascota"</a>
-<h3>TODAS LAS MASCOTAS </div> </h3>
+<h3>TODAS LAS MASCOTAS  </h3>
 {%for mascota in mascotas%}
 <br><br>
 <span> {{mascota.nombre}} - {{mascota.especie}} - {{mascota.sexo}} - {{mascota.fecha_de_nacimiento}}</span>
 
 {%endfor%}
+</div>
 <br>
 {% endblock contenido_base %}
