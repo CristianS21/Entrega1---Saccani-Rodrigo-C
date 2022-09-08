@@ -1,0 +1,21 @@
+{% extends "app_agenda/plantilla_base.html" %}
+{% load static %}
+
+{% block contenido_base %}
+<div style="padding-top: 100px;">
+<div style="padding-left: 107px;">
+
+
+
+<form action="/app_agenda/buscar/" method='GET'>
+{% csrf_token %}    
+<input type="text" name= "nombre" id="nombre">
+<input type ="submit" value="Buscar">
+
+</form>
+
+
+</div>
+</div>
+
+{% endblock contenido_base %}

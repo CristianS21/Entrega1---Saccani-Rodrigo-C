@@ -10,10 +10,11 @@ A continuación podrás generar un nuevo ingreso.
 <br>
 <br>
 <a href="{% url 'form_mascotas' %}">"Añadir mascota"</a>
-
+<h3>TODAS LAS MASCOTAS </div> </h3>
 {%for mascota in mascotas%}
-<span>{{mascota.nombre}} {{mascota.especie}} {{mascota.sexo}} {{mascota.fecha_de_nacimiento}}</span>
-{%endfor%}
-</div>
+<br><br>
+<span> {{mascota.nombre}} - {{mascota.especie}} - {{mascota.sexo}} - {{mascota.fecha_de_nacimiento}}</span>
 
+{%endfor%}
+<br>
 {% endblock contenido_base %}

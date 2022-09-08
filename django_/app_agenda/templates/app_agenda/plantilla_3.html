@@ -13,8 +13,11 @@ A continuación podrás generar un nuevo ingreso.
 <a href="{% url 'form_plantas' %}">"Añadir planta"</a>
 </div>
 
+<h3>TODAS LAS PLANTAS </div> </h3>
 {%for planta in plantas%}
-<span>{{planta.especie}} - {{planta.fecha_de_adopcion}}</span>
+<br><br>
+<span> {{planta.especie}} - Fecha de adopción: {{planta.fecha_de_adopcion}} </span>
 {%endfor%}
+
 
 {% endblock contenido_base %}
