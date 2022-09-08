@@ -34,8 +34,6 @@ def formulario_mascota (request):
     return render (request, "app_agenda/form_mascota.html",{"formulario":formulario})
 
 
-
-
 def formulario_plantas (request):
     if request.method =='POST':
         formulario=form_plantas(request.POST)
@@ -53,7 +51,6 @@ def formulario_plantas (request):
 def buscar_planta (request):
     plantas= Planta.objects.all()
     return render (request,"app_agenda/plantilla_3.html", {"plantas":plantas})
-
 
 
 
