@@ -15,14 +15,42 @@ A continuación podrás generar un nuevo ingreso.
 <a href="{% url 'busqueda_plantas' %}">"Buscar planta"</a>
 
 
+<table class="coder-table">
+    <tbody>
+        <style>
+            table.coder-table {
+              border:3px solid;
+            }
+            th,
+            td {
+              border:1px solid;
+              padding:5px 10px;
+            }
+            .eliminado {
+              background-color: red;
+            }
+          </style>
 
-<h3>TODAS LAS PLANTAS</h3>
-{%for planta in plantas%}
-
-<br><br>
-<span> {{planta.especie}} - Fecha de adopción: {{planta.fecha_de_adopcion}} </span>
-
-{%endfor%}
-</div>
-
+      <tr>
+        <th>
+          <strong>Especie</strong>
+        </th>
+        <th>
+          <strong>Fecha de adopción</strong>
+        </th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr><br><br>
+<h3>TODAS LAS PLANTAS </h3>     
+      {% for planta in plantas %}
+      <tr>
+        <td>{{planta.especie}}</td>
+        <td>{{planta.fecha_de_adopcion}}</td>
+       
+        <td><a href="">Editar</a></td>
+        <td><a href="">Eliminar</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 {% endblock contenido_base %}

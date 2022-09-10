@@ -16,5 +16,8 @@ urlpatterns = [
    
     path('busqueda_plantas/', views.busqueda_plantas, name="busqueda_plantas"),
     path('buscar_plantas/', views.buscar_plantas, name="buscar_planta"),
+
+ 
+    
     
 ]

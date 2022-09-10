@@ -11,14 +11,11 @@ def inicio (request):
 def usuario (request):
     return render (request, "app_agenda/plantilla_1.html")
 
+# VIEWS de MASCOTAS
+
 def mascotas (request):
     mascotas = Mascota.objects.all()
     return render (request, "app_agenda/plantilla_2.html",{"mascotas":mascotas})
-
-def plantas (request):
-    plantas = Planta.objects.all()
-    return render (request, "app_agenda/plantilla_3.html",{"plantas":plantas})
-
 
 def formulario_mascota (request):
     if request.method =='POST':
@@ -33,6 +30,26 @@ def formulario_mascota (request):
         formulario= form_mascotas()
     return render (request, "app_agenda/form_mascota.html",{"formulario":formulario})
 
+def busqueda_mascotas (request):
+    return render (request, "app_agenda/busqueda_mascotas.html")
+
+def buscar_mascotas (request):
+    if request.GET["nombre"]:
+        nombre=request.GET["nombre"]
+        mascotas= Mascota.objects.filter(nombre=nombre)
+        return render (request, "app_agenda/resultado_busqueda_mascotas.html", {"mascotas":mascotas}) 
+    else: 
+        respuesta= "No enviaste datos"
+    return HttpResponse (respuesta)
+
+
+
+
+#VIEWS de PLANTAS
+
+def plantas (request):
+    plantas = Planta.objects.all()
+    return render (request, "app_agenda/plantilla_3.html",{"plantas":plantas})
 
 def formulario_plantas (request):
     if request.method =='POST':
@@ -47,23 +64,7 @@ def formulario_plantas (request):
     else:
         formulario= form_plantas()
     return render (request, "app_agenda/form_plantas.html",{"formulario":formulario})
-        
-#def buscar_planta (request):
- #   plantas= Planta.objects.all()
-  #  return render (request,"app_agenda/plantilla_3.html", {"plantas":plantas})
 
-
-def busqueda_mascotas (request):
-    return render (request, "app_agenda/busqueda_mascotas.html")
-
-def buscar_mascotas (request):
-    if request.GET["nombre"]:
-        nombre=request.GET["nombre"]
-        mascotas= Mascota.objects.filter(nombre=nombre)
-        return render (request, "app_agenda/resultado_busqueda_mascotas.html", {"mascotas":mascotas}) 
-    else: 
-        respuesta= "No enviaste datos"
-    return HttpResponse (respuesta)
 
 def busqueda_plantas (request):
     return render (request, "app_agenda/busqueda_plantas.html")

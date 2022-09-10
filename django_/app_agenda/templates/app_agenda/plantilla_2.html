@@ -12,13 +12,56 @@ A continuación podrás generar un nuevo ingreso o buscar una mascota.
 <br>
 
 <a href="{% url 'form_mascotas' %}">"Añadir mascota"</a><br>
-<a href="{% url 'busqueda_mascotas' %}">"Buscar mascota"</a>
-<h3>TODAS LAS MASCOTAS  </h3>
-{%for mascota in mascotas%}
-<br><br>
-<span> {{mascota.nombre}} - {{mascota.especie}} - {{mascota.sexo}} - {{mascota.fecha_de_nacimiento}}</span>
+<a href="{% url 'busqueda_mascotas' %}">"Buscar mascota"</a><br><br>
 
-{%endfor%}
-</div>
-<br>
+<table class="coder-table">
+    <tbody>
+        <style>
+            table.coder-table {
+              border:3px solid;
+            }
+            th,
+            td {
+              border:1px solid;
+              padding:5px 10px;
+            }
+            .eliminado {
+              background-color: red;
+            }
+          </style>
+      <tr><h3>TODAS LAS MASCOTAS  </h3>
+        <th>
+          <strong>Nombre</strong>
+        </th>
+        <th>
+          <strong>Especie</strong>
+        </th>
+        <th>
+            <strong>Sexo</strong>
+          </th>
+          <th>
+            <strong>Fecha de nacimiento</strong>
+          </th>
+        <th>Editar</th>
+        <th>Eliminar</th>
+      </tr>
+     
+      {% for mascota in mascotas %}
+      <tr>
+        <td>{{mascota.nombre}}</td>
+        <td>{{mascota.especie}}</td>
+        <td>{{mascota.sexo}}</td>
+        <td>{{mascota.fecha_de_nacimiento}}</td>
+        <td><a href="">Editar</a></td>
+        <td><a href="">Eliminar</a></td>
+      </tr>
+
+      {% endfor %}
+    </tbody>
+  </table>
+  
+
 {% endblock contenido_base %}
+
+
+
