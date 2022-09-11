@@ -12,7 +12,7 @@ A continuación podrás generar un nuevo ingreso.
 <br>
 
 <a href="{% url 'form_plantas' %}">"Añadir planta"</a><br>
-<a href="{% url 'busqueda_plantas' %}">"Buscar planta"</a>
+<a href="{% url 'busqueda_plantas' %}">"Buscar planta"</a><br><br><br>
 
 
 <table class="coder-table">
@@ -29,7 +29,12 @@ A continuación podrás generar un nuevo ingreso.
             .eliminado {
               background-color: red;
             }
+            .eliminado {background-color: rgb(163, 43, 43); font: 100;color: white;}
           </style>
+
+   {% if borrado %}
+        <div class="eliminado"> Fue eliminado el item correspondiente a: {{borrado}}
+          {% endif %}
 
       <tr>
         <th>
@@ -40,15 +45,17 @@ A continuación podrás generar un nuevo ingreso.
         </th>
         <th>Editar</th>
         <th>Eliminar</th>
-      </tr><br><br>
-<h3>TODAS LAS PLANTAS </h3>     
+      </tr>
+
+
+      <h3>TODAS LAS PLANTAS </h3>     
       {% for planta in plantas %}
       <tr>
         <td>{{planta.especie}}</td>
         <td>{{planta.fecha_de_adopcion}}</td>
        
         <td><a href="">Editar</a></td>
-        <td><a href="">Eliminar</a></td>
+        <td><a href="{% url 'eliminar_item_planta' planta.especie %}">Eliminar</a></td>
       </tr>
       {% endfor %}
     </tbody>

@@ -21,17 +21,13 @@ def mascotas (request):
     contexto ["borrado"] = borrado    
     return render (request, "app_agenda/plantilla_2.html",contexto)
 
-def eliminar_item (request,nombre):
+def eliminar_item_mascota (request,nombre):
     mascota=Mascota.objects.get(nombre=nombre)
     borrado_nombre= mascota.nombre
     mascota.delete()
     url_final= f"{reverse ('Mascota')}?borrado={borrado_nombre}"
-
-    
+  
     return redirect (url_final)
-
-
-
 
 def formulario_mascota (request):
     if request.method =='POST':
@@ -58,15 +54,22 @@ def buscar_mascotas (request):
         respuesta= "No enviaste datos"
     return HttpResponse (respuesta)
 
-
-
-
-    return redirect(url_final)
 #VIEWS de PLANTAS
 
 def plantas (request):
     plantas = Planta.objects.all()
-    return render (request, "app_agenda/plantilla_3.html",{"plantas":plantas})
+    contexto= {"plantas":plantas}
+    borrado= request.GET.get("borrado",None)
+    contexto ["borrado"] = borrado    
+    return render (request, "app_agenda/plantilla_3.html",contexto)
+
+def eliminar_item_planta (request,especie):
+    planta=Planta.objects.get(especie=especie)
+    borrado_especie= planta.especie
+    planta.delete()
+    url_final= f"{reverse ('Plantas')}?borrado={borrado_especie}"
+  
+    return redirect (url_final)
 
 def formulario_plantas (request):
     if request.method =='POST':
