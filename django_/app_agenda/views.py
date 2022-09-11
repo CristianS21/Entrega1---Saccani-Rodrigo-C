@@ -1,6 +1,7 @@
+from contextlib import redirect_stderr
 from django.http import HttpResponse
 from app_agenda.models import Mascota,Planta
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse,redirect,reverse
 from typing import Dict
 from app_agenda.forms import form_mascotas,form_plantas
 
@@ -15,7 +16,22 @@ def usuario (request):
 
 def mascotas (request):
     mascotas = Mascota.objects.all()
-    return render (request, "app_agenda/plantilla_2.html",{"mascotas":mascotas})
+    contexto= {"mascotas":mascotas}
+    borrado= request.GET.get("borrado",None)
+    contexto ["borrado"] = borrado    
+    return render (request, "app_agenda/plantilla_2.html",contexto)
+
+def eliminar_item (request,nombre):
+    mascota=Mascota.objects.get(nombre=nombre)
+    borrado_nombre= mascota.nombre
+    mascota.delete()
+    url_final= f"{reverse ('Mascota')}?borrado={borrado_nombre}"
+
+    
+    return redirect (url_final)
+
+
+
 
 def formulario_mascota (request):
     if request.method =='POST':
@@ -45,6 +61,7 @@ def buscar_mascotas (request):
 
 
 
+    return redirect(url_final)
 #VIEWS de PLANTAS
 
 def plantas (request):

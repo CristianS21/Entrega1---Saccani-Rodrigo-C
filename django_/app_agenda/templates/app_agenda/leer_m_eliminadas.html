@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   {% for mascota in mascotas %}
+   <button>
+    <td><a href="{% url 'eliminar_item' mascota.nombre %}">Eliminar</a></td>
+    </button>
+    {% endfor %}
+
+    <td><a href="">Agregar mascota</a></td>
+
+
+</body>
+</html>

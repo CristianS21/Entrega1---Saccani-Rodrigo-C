@@ -24,11 +24,16 @@ A continuación podrás generar un nuevo ingreso o buscar una mascota.
             td {
               border:1px solid;
               padding:5px 10px;
+            
             }
-            .eliminado {
-              background-color: red;
-            }
+            .eliminado {background-color: rgb(163, 43, 43); font: 100;color: white;}
           </style>
+
+   {% if borrado %}
+        <div class="eliminado"> Fue eliminado el item correspondiente a: {{borrado}}
+          {% endif %}
+
+
       <tr><h3>TODAS LAS MASCOTAS  </h3>
         <th>
           <strong>Nombre</strong>
@@ -45,23 +50,26 @@ A continuación podrás generar un nuevo ingreso o buscar una mascota.
         <th>Editar</th>
         <th>Eliminar</th>
       </tr>
-     
+  
+
+
       {% for mascota in mascotas %}
       <tr>
-        <td>{{mascota.nombre}}</td>
+        <td>{{mascota.nombre}}</td> 
         <td>{{mascota.especie}}</td>
         <td>{{mascota.sexo}}</td>
         <td>{{mascota.fecha_de_nacimiento}}</td>
         <td><a href="">Editar</a></td>
-        <td><a href="">Eliminar</a></td>
+        <td><a href="{% url 'eliminar_item' mascota.nombre %}">Eliminar</a></td>
+       
       </tr>
 
       {% endfor %}
     </tbody>
   </table>
   
-
 {% endblock contenido_base %}
 
 
 
+         
