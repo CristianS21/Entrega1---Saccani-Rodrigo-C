@@ -31,10 +31,10 @@ A continuación podrás generar un nuevo ingreso o buscar una mascota.
           </style>
 
    {% if borrado %}
-        <div class="eliminado"> Fue eliminado el item correspondiente a: {{borrado}}
+        <div class="eliminado"> Fue eliminado el item correspondiente a: {{borrado}}</div>
           {% endif %}
-
-
+          
+        
       <tr><h3>TODAS LAS MASCOTAS  </h3>
         <th>
           <strong>Nombre</strong>
@@ -66,10 +66,12 @@ A continuación podrás generar un nuevo ingreso o buscar una mascota.
       </tr>
 
       {% endfor %}
+    </div>
     </tbody>
   </table>
   
 {% endblock contenido_base %}
+
 
 
 

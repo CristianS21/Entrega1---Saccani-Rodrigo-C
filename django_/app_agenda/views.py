@@ -2,7 +2,6 @@
 from django.http import HttpResponse
 from app_agenda.models import Mascota,Planta
 from django.shortcuts import render, HttpResponse, redirect, reverse 
-from typing import Dict
 from app_agenda.forms import form_mascotas, form_plantas
 
  
@@ -20,14 +19,13 @@ def mascotas (request):
     contexto= {"mascotas":mascotas}
     borrado= request.GET.get("borrado",None)
     contexto ["borrado"] = borrado    
-    return render (request, "app_agenda/plantilla_2.html",contexto)
+    return render (request, "app_agenda/plantilla_2.html", contexto)
 
 def eliminar_item_mascota (request,nombre):
     mascota=Mascota.objects.get(nombre=nombre)
     borrado_nombre= mascota.nombre
     mascota.delete()
     url_final= f"{reverse ('Mascota')}?borrado={borrado_nombre}"
-  
     return redirect (url_final)
 
 def formulario_mascota (request):
@@ -55,12 +53,11 @@ def buscar_mascotas (request):
         respuesta= "No enviaste datos"
     return HttpResponse (respuesta)
 
-def editar_item_mascota (request,nombre):
-   # Recibe param profesor id, con el que obtenemos el profesor
+def editar_item_mascota (request, nombre):
     mascota_edit = Mascota.objects.get(nombre=nombre)
 
     if request.method == 'POST':
-        formulario = form_mascotas (request.POST)
+        formulario = form_mascotas(request.POST)
 
         if formulario.is_valid():
             data = formulario.cleaned_data
@@ -71,7 +68,7 @@ def editar_item_mascota (request,nombre):
             mascota_edit.fecha_de_nacimiento = data ['fecha_de_nacimiento']
             mascota_edit.save()
 
-            return redirect (reverse ('mascotas'))
+            return redirect (reverse ('Mascota'))
     else:  # GET
         inicial = {
             'nombre': mascota_edit.nombre,
@@ -79,8 +76,8 @@ def editar_item_mascota (request,nombre):
             'sexo': mascota_edit.sexo,
             'fecha_de_nacimiento': mascota_edit.fecha_de_nacimiento,
         }
-        formulario = form_mascotas  (initial=inicial)
-    return render(request, "app_agenda/form_mascota.html", {"formulario": formulario})
+        formulario = form_mascotas (initial=inicial)
+    return render (request, "app_agenda/form_mascota.html", {"formulario": formulario})
 
 #VIEWS de PLANTAS
 
