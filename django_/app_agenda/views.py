@@ -122,3 +122,25 @@ def buscar_plantas (request):
         respuesta= "No enviaste datos"
     return HttpResponse (respuesta)    
 
+def editar_item_planta (request, especie):
+    planta_edit = Planta.objects.get(especie=especie)
+
+    if request.method == 'POST':
+        formulario = form_plantas(request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+
+            planta_edit.especie = data['especie']
+            planta_edit.fecha_de_adopcion = data['fecha_de_adopcion']
+            planta_edit.save()
+
+            return redirect (reverse ('Plantas'))
+    else:  # GET
+        inicial = {
+            'especie': planta_edit.especie,
+            'fecha_de_adopción': planta_edit.fecha_de_adopcion,            
+        }
+        formulario = form_mascotas (initial=inicial)
+    return render (request, "app_agenda/form_plantas.html", {"formulario": formulario})
+

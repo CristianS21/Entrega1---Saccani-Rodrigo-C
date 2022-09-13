@@ -54,7 +54,7 @@ A continuación podrás generar un nuevo ingreso.
         <td>{{planta.especie}}</td>
         <td>{{planta.fecha_de_adopcion}}</td>
        
-        <td><a href="">Editar</a></td>
+        <td><a href="{% url 'editar_item_planta' planta.especie %}">Editar</a></td>
         <td><a href="{% url 'eliminar_item_planta' planta.especie %}">Eliminar</a></td>
       </tr>
       {% endfor %}
