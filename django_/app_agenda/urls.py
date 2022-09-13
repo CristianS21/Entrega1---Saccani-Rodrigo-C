@@ -12,6 +12,7 @@ urlpatterns = [
     path('busqueda_mascotas/', views.busqueda_mascotas, name="busqueda_mascotas"),
     path('buscar_mascotas/', views.buscar_mascotas, name="buscar_mascota"),
     path('eliminar_item_mascota/<nombre>/', views.eliminar_item_mascota, name="eliminar_item_mascota"),
+    path('editar_item_mascota/<nombre>/', views.editar_item_mascota, name="editar_item_mascota"),
     
     # URLs de Planta! 
     

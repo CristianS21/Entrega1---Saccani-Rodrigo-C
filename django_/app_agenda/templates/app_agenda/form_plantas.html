@@ -6,9 +6,9 @@
 <div style="padding-top: 100px;">
 <div style="padding-left: 107px;">
 
-
-<form  method="post">
+<form  method='POST'>
 {% csrf_token %}   
+
 NUEVO INGRESO: 
 <br>
 <br>
@@ -19,11 +19,10 @@ NUEVO INGRESO:
 <p> FECHA DE ADOPCIÓN
 <input type="date" name="fecha_de_adopcion"> 
 </p>
+
 <input type="submit" value="Ingresar planta"/>
+
 </form>
-
-
-</div>
 </div>
 
 {% endblock contenido_base %}

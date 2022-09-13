@@ -5,10 +5,10 @@
 <div style="padding-top: 100px;">
 <div style="padding-left: 107px;">
 
-
-
 <form  method='POST'>
 {% csrf_token %}    
+
+
 NUEVO INGRESO:
 <br>
 <br>
@@ -22,14 +22,16 @@ NUEVO INGRESO:
 <input type="text" name="sexo">
 </p>
 <p> FECHA DE NACIMIENTO
-<input type="date" name="fecha_de_nacimiento"> 
+<input type="date" name="fecha_de_nacimiento"> <br><br>
+
+<input type="submit" value="Enviar"/>
+
 </p>
-<input type="Submit" value="Ingresar mascota"/>
 
 </form>
-
-
 </div>
-
-
 {% endblock contenido_base %}
+
+
+
+

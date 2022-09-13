@@ -1,10 +1,11 @@
-from contextlib import redirect_stderr
+
 from django.http import HttpResponse
 from app_agenda.models import Mascota,Planta
-from django.shortcuts import render, HttpResponse,redirect,reverse
+from django.shortcuts import render, HttpResponse, redirect, reverse 
 from typing import Dict
-from app_agenda.forms import form_mascotas,form_plantas
+from app_agenda.forms import form_mascotas, form_plantas
 
+ 
 # Create your views here.
 def inicio (request):
     return render (request, "app_agenda/plantilla_inicio.html")
@@ -54,6 +55,33 @@ def buscar_mascotas (request):
         respuesta= "No enviaste datos"
     return HttpResponse (respuesta)
 
+def editar_item_mascota (request,nombre):
+   # Recibe param profesor id, con el que obtenemos el profesor
+    mascota_edit = Mascota.objects.get(nombre=nombre)
+
+    if request.method == 'POST':
+        formulario = form_mascotas (request.POST)
+
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+
+            mascota_edit.nombre = data['nombre']
+            mascota_edit.especie = data['especie']
+            mascota_edit.sexo = data['sexo']
+            mascota_edit.fecha_de_nacimiento = data ['fecha_de_nacimiento']
+            mascota_edit.save()
+
+            return redirect (reverse ('mascotas'))
+    else:  # GET
+        inicial = {
+            'nombre': mascota_edit.nombre,
+            'especie': mascota_edit.especie,
+            'sexo': mascota_edit.sexo,
+            'fecha_de_nacimiento': mascota_edit.fecha_de_nacimiento,
+        }
+        formulario = form_mascotas  (initial=inicial)
+    return render(request, "app_agenda/form_mascota.html", {"formulario": formulario})
+
 #VIEWS de PLANTAS
 
 def plantas (request):
@@ -78,13 +106,12 @@ def formulario_plantas (request):
         if formulario.is_valid():
             data = formulario.cleaned_data       
 
-            mascota1 = Planta (especie= data ['especie'], fecha_de_adopcion=data ['fecha_de_adopcion'])
-            mascota1.save()
+            planta1 = Planta (especie= data ['especie'], fecha_de_adopcion=data ['fecha_de_adopcion'])
+            planta1.save()
             return render (request, "app_agenda/plantilla_inicio.html")
     else:
         formulario= form_plantas()
     return render (request, "app_agenda/form_plantas.html",{"formulario":formulario})
-
 
 def busqueda_plantas (request):
     return render (request, "app_agenda/busqueda_plantas.html")
