@@ -23,8 +23,11 @@ urlpatterns = [
     path('eliminar_item_planta/<especie>/', views.eliminar_item_planta, name="eliminar_item_planta"),
     path('editar_item_planta/<especie>/', views.editar_item_planta, name="editar_item_planta"),
     
+    # URLs de Usuario!
+    
+    path('login/', views.login_request, name='Login'),
+    path('registro/', views.registro, name = 'registro'),
+    path('logout/', views.CustomLogoutView.as_view(), name = 'logout'),
 
- 
-    
-    
+       
 ]
