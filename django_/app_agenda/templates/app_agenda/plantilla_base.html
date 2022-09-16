@@ -50,8 +50,8 @@
     </div><!-- End Navigation bar -->
   </div><!-- End Slide gallery -->
   {% block contenido_base %}
-  {% endblock contenido_base %}
-  <h3 class="text-center"> Registrando lo importante. Cuidando lo nuestro. </h3>
+  {% endblock contenido_base %}<br>
+
 
   <!-- Thumbnails -->
   <div class="container thumbs">
@@ -83,7 +83,7 @@
         <div class="caption">
           <h3 class="text-center">Plantas</h3>
           <br>
-          <p>Quienes tienen plantas y gustan de cuidarlas con regularidad, suelen lidiar con confusiones en cuanto a fechas de fertilización y dosificación de productos antiplagas. BioAgenda te ayudará en la organización esa labor. </p>
+          <p>Quienes tienen plantas y gustan de cuidarlas con regularidad, suelen lidiar con confusiones en cuanto a fechas de fertilización y dosificación de productos antiplagas. BioAgenda te ayudará en la organización de esas labores. </p>
 
         </div>
       </div>
@@ -91,14 +91,14 @@
   </div><!-- End Thumbnails -->
     <!-- Content -->
     <div class="container">
-      <br>
+   
       <h3 class="text-center">Bienvenidos a BioAgenda</h3>
       <br>
-      <p>El proyecto de BioAgenda surgió como una iniciativa propia a raíz de una situación personal: al momento de llevar registro de mis mascotas, especialmente de sus vacunas, medicaciones a lo largo de sus vidas, episodios destacables, me resulta imposible ya que todo aquello quedó registrado en formato papel, dispersos y muchos irrecuperables. BioAgenda entiende la importancia de tal fin, por lo tanto pretende solucionar esa problemática de forma rápida y sencilla.</p>
+      <p>El proyecto de <b>BioAgenda</b> surgió como iniciativa propia a raíz de una situación personal: al momento de llevar registro de mis mascotas, especialmente de sus vacunas, medicaciones a lo largo de sus vidas, episodios destacables, me resulta imposible ya que todo aquello quedó registrado en formato papel, disperso y muchas veces irrecuperables. BioAgenda entiende la importancia de tal fin, por lo tanto pretende solucionar esa problemática de forma rápida y sencilla.</p>
     </div><!-- End Content -->
     <!-- Footer -->
     <div class="footer text-center">
-        <p>&copy;  Hecho por R. Cristian S. - Proyecto Final Coderhouse > Python (framework Django) - 2022 </p>
+        <p>&copy;  Hecho por R. Cristian S. - Proyecto Final Coderhouse > <b>Python</b> (framework <b>Django</b>) - 2022 </p>
     </div><!-- End Footer -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -107,6 +107,37 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="{% static 'app_agenda/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'app_agenda/js/bootshape.js' %}"></script>
+  
+    <!-- Footer-->
+    <footer class="footer bg-light">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                  <ul class="list-inline mb-2">
+                      <li class="list-inline-item"><a href="#!">Ayuda</a></li>
+                      <li class="list-inline-item">⋅</li>
+                      <li class="list-inline-item"><a href="#!">Contacto</a></li>
+                    
+                  </ul>
+                  <p class="text-muted small mb-4 mb-lg-0">&copy; BioAgenda</p>
+              </div>
+              <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                  <ul class="list-inline mb-0">
+                      <li class="list-inline-item me-4">
+                          <a href=""><i class="bi-facebook fs-3"></i></a>
+                      </li>
+                      <li class="list-inline-item me-4">
+                          <a href="#!"><i class="bi-twitter fs-3"></i></a>
+                      </li>
+                      <li class="list-inline-item">
+                          <a href="https://www.instagram.com/natgeo/"><i class="bi-instagram fs-3"></i></a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </footer>
+
   </body>
 </html>
 

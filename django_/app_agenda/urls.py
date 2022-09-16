@@ -3,7 +3,7 @@ from app_agenda import views
 
 urlpatterns = [
   
-    path('inicio/', views.inicio,name="inicio"),
+    path('', views.inicio,name="inicio"),
     #path('usuario/', views.usuario),
     
     # URLs de Mascota! 

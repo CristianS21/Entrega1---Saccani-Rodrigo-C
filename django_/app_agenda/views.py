@@ -6,6 +6,7 @@ from app_agenda.forms import form_mascotas, form_plantas,UserRegisterForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.views import LogoutView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
  
@@ -54,8 +55,9 @@ def buscar_mascotas (request):
         mascotas= Mascota.objects.filter(nombre=nombre)
         return render (request, "app_agenda/resultado_busqueda_mascotas.html", {"mascotas":mascotas}) 
     else: 
-        respuesta= "No enviaste datos"
-    return HttpResponse (respuesta)
+        respuesta= "Error, no enviaste formulario"
+    return render (request, "app_agenda/buscar_m_error.html",{"respuesta":respuesta} )
+    
 
 def editar_item_mascota (request, nombre):
     mascota_edit = Mascota.objects.get(nombre=nombre)
@@ -123,8 +125,8 @@ def buscar_plantas (request):
         plantas= Planta.objects.filter(especie=especie)
         return render (request, "app_agenda/resultado_busqueda_plantas.html", {"plantas":plantas}) 
     else: 
-        respuesta= "No enviaste datos"
-    return HttpResponse (respuesta)    
+        respuesta= "Error, no enviaste formulario"
+    return render (request, "app_agenda/buscar_p_error.html",{"respuesta":respuesta} ) 
 
 def editar_item_planta (request, especie):
     planta_edit = Planta.objects.get(especie=especie)
@@ -186,7 +188,6 @@ def registro(request):
         'form': formulario,
         'mensaje': mensaje
     }
-
     return render(request, "app_agenda/registro.html", context=context)
 
 class CustomLogoutView(LogoutView):
