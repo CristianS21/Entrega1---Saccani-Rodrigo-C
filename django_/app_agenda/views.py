@@ -153,24 +153,26 @@ def editar_item_planta (request, especie):
 # VIEWS de USUARIO
 
 def login_request(request):
-    next_url = request.GET.get('next')
+    print ("0")
     if request.method == "POST":
+        print ("1")
         form = AuthenticationForm(request, data = request.POST)
         if form.is_valid():
+            print ("2")
             usuario = form.cleaned_data.get('username')
             contra = form.cleaned_data.get('password')
             user = authenticate(username=usuario, password=contra)
+            print ("3")
             if user:
                 login(request=request, user=user)
-                if next_url:
-                    return redirect(next_url)
-                return render(request, "app_agenda/plantilla_inicio.html", {"mensaje":f"Bienvenido {usuario}"})
+                print ("4")
+                return render(request, "app_agenda/plantilla_inicio.html", {"gracias":f"Bienvenido {usuario}"})
             else:
-                return render(request,"app_agenda/plantilla_inicio.html", {"mensaje":"Error, datos incorrectos"})
+                return render(request,"app_agenda/plantilla_inicio.html", {"error1":"Revisá los datos ingresados"})
         else:
-            return render(request,"app_agenda/plantilla_inicio.html", {"mensaje":"Error, formulario erróneo"})
+            return render(request,"app_agenda/plantilla_inicio.html", {"error1":"Revisá los datos ingresados"})
 
-    form = AuthenticationForm()
+    form = AuthenticationForm() # GET
     return render(request,"app_agenda/login.html", {'form':form} )
 
 def registro (request):
@@ -185,4 +187,4 @@ def registro (request):
     return render(request, "app_agenda/registro.html", {"form":formulario})
 
 class CustomLogoutView(LogoutView):
-    template_name = 'app_agenda/logout.html'
+    template_name = 'app_agenda/logout.html' 

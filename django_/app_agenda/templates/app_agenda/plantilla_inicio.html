@@ -3,6 +3,7 @@
 
 
 {% block contenido_base %}
+ 
 
     <!-- Slide gallery -->
     <div class="jumbotron">
@@ -38,11 +39,22 @@
           <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
-        </div>
-        <h3 class="text-center"> Registrando lo importante. Cuidando lo nuestro.</h3><br>
-       
-        {% if mensaje %}
-        <span style="background-color: green;"> Felicitaciones!!! {{mensaje}}</span>
-        {% endif %}
+          
+              </div>
+          <h3 class="text-center"> Registrando lo importante. Cuidando lo nuestro.</h3><br>
+          
+          {% if mensaje %}
+          <span style="background-color: green;"> Felicitaciones!!! {{mensaje}}</span>
+          {% endif %}
+          
+          {% if gracias %}
+          <span font="white" style="background-color: green;"> Gracias por utilizar BioAgenda!!! {{gracias}}</span>
+          {% endif %}
+
+          {% if error1 %}
+          <span font="white" style="background-color: red;"> Cuidado!!! {{error1}}</span>
+          {% endif %}
+
+          
       
-      {% endblock contenido_base %}
+          {% endblock contenido_base %}
