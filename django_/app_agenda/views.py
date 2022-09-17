@@ -153,25 +153,19 @@ def editar_item_planta (request, especie):
 # VIEWS de USUARIO
 
 def login_request(request):
-    print ("0")
     if request.method == "POST":
-        print ("1")
         form = AuthenticationForm(request, data = request.POST)
         if form.is_valid():
-            print ("2")
             usuario = form.cleaned_data.get('username')
             contra = form.cleaned_data.get('password')
             user = authenticate(username=usuario, password=contra)
-            print ("3")
             if user:
                 login(request=request, user=user)
-                print ("4")
                 return render(request, "app_agenda/plantilla_inicio.html", {"gracias":f"Bienvenido {usuario}"})
             else:
                 return render(request,"app_agenda/plantilla_inicio.html", {"error1":"Revisá los datos ingresados"})
         else:
             return render(request,"app_agenda/plantilla_inicio.html", {"error1":"Revisá los datos ingresados"})
-
     form = AuthenticationForm() # GET
     return render(request,"app_agenda/login.html", {'form':form} )
 
