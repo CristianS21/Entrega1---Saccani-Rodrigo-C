@@ -16,12 +16,22 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/login/" method="POST">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Registrarse" />
+      </form>
+</body>
+</html>
+{% endblock contenido_base %}
+
+
+
+
+<form action="/login/" method='POST'>
+       
         {%csrf_token%}
         {{form.as_p}}
 
         <button type="submit" >Registrarse</button>
     </form>
-</body>
-</html>
-{% endblock contenido_base %}

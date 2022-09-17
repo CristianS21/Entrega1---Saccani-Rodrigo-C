@@ -39,6 +39,10 @@
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
         </div>
-        <h3 class="text-center"> Registrando lo importante. Cuidando lo nuestro. </h3><br>
-        
+        <h3 class="text-center"> Registrando lo importante. Cuidando lo nuestro.</h3><br>
+       
+        {% if mensaje %}
+        <span style="background-color: green;"> Felicitaciones!!! {{mensaje}}</span>
+        {% endif %}
+      
       {% endblock contenido_base %}

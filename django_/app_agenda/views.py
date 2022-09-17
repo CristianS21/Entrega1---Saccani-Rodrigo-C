@@ -2,11 +2,13 @@
 from django.http import HttpResponse
 from app_agenda.models import Mascota,Planta
 from django.shortcuts import render, HttpResponse, redirect, reverse 
-from app_agenda.forms import form_mascotas, form_plantas,UserRegisterForm
+from app_agenda.forms import form_mascotas, form_plantas, UserRegisterForm
+
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
  
@@ -38,7 +40,6 @@ def formulario_mascota (request):
         formulario=form_mascotas(request.POST)
         if formulario.is_valid():
             data = formulario.cleaned_data       
-
             mascota1 = Mascota (nombre= data ['nombre'],especie= data ['especie'],sexo= data ['sexo'], fecha_de_nacimiento= data ['fecha_de_nacimiento'])
             mascota1.save()
             return render (request, "app_agenda/plantilla_inicio.html")
@@ -58,7 +59,6 @@ def buscar_mascotas (request):
         respuesta= "Error, no enviaste formulario"
     return render (request, "app_agenda/buscar_m_error.html",{"respuesta":respuesta} )
     
-
 def editar_item_mascota (request, nombre):
     mascota_edit = Mascota.objects.get(nombre=nombre)
 
@@ -173,22 +173,16 @@ def login_request(request):
     form = AuthenticationForm()
     return render(request,"app_agenda/login.html", {'form':form} )
 
-def registro(request):
-    mensaje = ''
+def registro (request):
     if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
-
-        if form.is_valid():
-            form.save()
-            return render(request, "app_agenda/inicio.html", {"mensaje": "Usuario Creado :)"})
-        else:
-            mensaje = 'Cometiste un error en el registro'
-    formulario = UserRegisterForm()  # Formulario vacio para construir el html
-    context = {
-        'form': formulario,
-        'mensaje': mensaje
-    }
-    return render(request, "app_agenda/registro.html", context=context)
+        formulario = UserRegisterForm (request.POST)
+        if formulario.is_valid():
+            formulario.save()
+            return render(request, "app_agenda/plantilla_inicio.html", {"mensaje": "Usuario Creado :)"})
+    else:
+        print ("4")  
+        formulario = UserRegisterForm()  # Formulario vacio para construir el html
+    return render(request, "app_agenda/registro.html", {"form":formulario})
 
 class CustomLogoutView(LogoutView):
     template_name = 'app_agenda/logout.html'
