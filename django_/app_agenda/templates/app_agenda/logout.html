@@ -16,10 +16,10 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/logout" method="POST">
+    <form action="/logout/" method="POST">
         {%csrf_token%}
         {{form.as_p}}
-
+        Gracias por utilizar BioAgenda. Hasta la próxima!!!<br><br>
         <button type="submit" >Confirmo cierre de sesión</button>
     </form>
 </body>

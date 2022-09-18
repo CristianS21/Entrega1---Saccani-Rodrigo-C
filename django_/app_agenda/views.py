@@ -176,9 +176,8 @@ def registro (request):
             formulario.save()
             return render(request, "app_agenda/plantilla_inicio.html", {"mensaje": "Usuario Creado :)"})
     else:
-        print ("4")  
         formulario = UserRegisterForm()  # Formulario vacio para construir el html
     return render(request, "app_agenda/registro.html", {"form":formulario})
 
 class CustomLogoutView(LogoutView):
-    template_name = 'app_agenda/logout.html' 
+    template_name = 'app_agenda/plantilla_inicio.html' 
