@@ -29,5 +29,6 @@ urlpatterns = [
     path('registro/', views.registro, name = 'registro'),
     path('logout/', views.CustomLogoutView.as_view(), name = 'logout'),
 
+    path('editar-perfil/', views.ProfileUpdateView.as_view(), name="editar_perfil"),
        
 ]

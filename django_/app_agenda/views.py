@@ -2,17 +2,20 @@
 from django.http import HttpResponse
 from app_agenda.models import Mascota,Planta
 from django.shortcuts import render, HttpResponse, redirect, reverse 
-from app_agenda.forms import form_mascotas, form_plantas, UserRegisterForm
-
+from app_agenda.forms import form_mascotas, form_plantas, UserRegisterForm, UserUpdateForm
+from django.views.generic import UpdateView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login,logout,authenticate
 from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.urls import reverse_lazy
 
 
 def inicio (request):
     return render (request, "app_agenda/plantilla_inicio.html")
+
 @login_required
 def usuario (request):
     return render (request, "app_agenda/plantilla_1.html")
@@ -25,6 +28,7 @@ def mascotas (request):
     borrado= request.GET.get("borrado",None)
     contexto ["borrado"] = borrado    
     return render (request, "app_agenda/plantilla_2.html", contexto)
+
 @login_required
 def eliminar_item_mascota (request,nombre):
     mascota=Mascota.objects.get(nombre=nombre)
@@ -32,6 +36,7 @@ def eliminar_item_mascota (request,nombre):
     mascota.delete()
     url_final= f"{reverse ('Mascota')}?borrado={borrado_nombre}"
     return redirect (url_final)
+
 @login_required
 def formulario_mascota (request):
     if request.method =='POST':
@@ -44,9 +49,11 @@ def formulario_mascota (request):
     else:
         formulario= form_mascotas()
     return render (request, "app_agenda/form_mascota.html",{"formulario":formulario})
+
 @login_required
 def busqueda_mascotas (request):
     return render (request, "app_agenda/busqueda_mascotas.html")
+
 @login_required
 def buscar_mascotas (request):
     if request.GET["nombre"]:
@@ -179,3 +186,17 @@ def registro (request):
 
 class CustomLogoutView(LogoutView):
     template_name = 'app_agenda/logout.html' 
+
+
+class ProfileUpdateView(UpdateView):
+
+    model = User
+
+    form_class = UserUpdateForm
+
+    success_url = reverse_lazy('inicio')
+
+    template_name = 'app_agenda/registro.html'
+
+    def get_object(self, queryset=None):
+        return self.request.user
