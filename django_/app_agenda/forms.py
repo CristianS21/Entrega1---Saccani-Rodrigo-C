@@ -22,13 +22,23 @@ class UserRegisterForm (UserCreationForm):
     class Meta:
         model = User
         fields = [  'first_name','last_name', 'username', 'email', 'password1', 'password2']
+        help_texts = {'first_name': None,
+        'last_name':None,
+        'username':None,
+        'email':None,
+        }
 
 
 class UserUpdateForm (forms.ModelForm):
 
     class Meta:
         model = User
-        fields = [  'first_name','last_name','username', 'email' ]
+        fields = [ 'first_name','last_name','username', 'email' ]
+        help_texts = {'first_name': None,
+        'last_name':None,
+        'username':None,
+        'email':None,
+        }
 
 class AvatarFormulario (forms.ModelForm):
 
