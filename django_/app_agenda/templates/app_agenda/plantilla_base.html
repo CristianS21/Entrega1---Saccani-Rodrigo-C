@@ -41,6 +41,7 @@
             {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}" >Cerrar sesión</a></li>  
             <li><a href="{% url 'editar_perfil' %}" >Editar Usuario</a></li>  
+            <li><a href="{% url 'agregar_avatar' %}" >Agregar Avatar</a></li>  
 
             {% else %}
             <li><a href="{% url 'Login' %}" >Iniciar sesión</a></li>

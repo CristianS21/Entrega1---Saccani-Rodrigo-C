@@ -1,5 +1,5 @@
 from django import forms
-
+from app_agenda.models import Avatar
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -29,3 +29,9 @@ class UserUpdateForm (forms.ModelForm):
     class Meta:
         model = User
         fields = [  'first_name','last_name','username', 'email' ]
+
+class AvatarFormulario (forms.ModelForm):
+
+    class Meta:
+        model = Avatar
+        fields = ['imagen']

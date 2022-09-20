@@ -54,7 +54,9 @@
           {% if error1 %}
           <span style="background-color: red;"> Cuidado!!! {{error1}}</span>
           {% endif %}
-
+         
+          <h1>avatar</h1>
+          <img src="{{ user.avatar.imagen.url }}" />
           
       
           {% endblock contenido_base %}

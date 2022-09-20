@@ -2,7 +2,7 @@
 from django.http import HttpResponse
 from app_agenda.models import Mascota,Planta
 from django.shortcuts import render, HttpResponse, redirect, reverse 
-from app_agenda.forms import form_mascotas, form_plantas, UserRegisterForm, UserUpdateForm
+from app_agenda.forms import form_mascotas, form_plantas, UserRegisterForm, UserUpdateForm, AvatarFormulario
 from django.views.generic import UpdateView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login,logout,authenticate
@@ -201,3 +201,19 @@ class ProfileUpdateView(UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
+
+
+@login_required
+def agregar_avatar(request):
+    if request.method == 'POST':
+
+        form = AvatarFormulario (request.POST, request.FILES) #aquí me llega toda la información del html
+
+        if form.is_valid:   #Si pasó la validación de Django
+            avatar = form.save()
+            avatar.user = request.user
+            avatar.save()
+            return redirect(reverse('inicio'))
+
+    form = AvatarFormulario() #Formulario vacio para construir el html
+    return render(request, "app_agenda/form_avatar.html", {"form":form})

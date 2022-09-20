@@ -1,0 +1,12 @@
+{% extends "app_agenda/plantilla_base.html" %}
+
+{% block contenido_base %}
+<br><br><br>
+<br><br>
+<h3>Cargar Avatar</h3>
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p  }}
+    <input type="submit" value="Guardar">
+</form>
+{% endblock contenido_base %}

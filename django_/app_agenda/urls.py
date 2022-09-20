@@ -29,6 +29,7 @@ urlpatterns = [
     path('registro/', views.registro, name = 'registro'),
     path('logout/', views.CustomLogoutView.as_view(), name = 'logout'),
 
+    # URLs de Perfil!
     path('editar-perfil/', views.ProfileUpdateView.as_view(), name="editar_perfil"),
-       
+    path('agregar-avatar/', views.agregar_avatar, name="agregar_avatar"),   
 ]
