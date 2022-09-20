@@ -185,7 +185,8 @@ def registro (request):
     return render(request, "app_agenda/registro.html", {"form":formulario})
 
 class CustomLogoutView(LogoutView):
-    template_name = 'app_agenda/logout.html' 
+    template_name = 'app_agenda/plantilla_inicio.html' 
+
 
 
 class ProfileUpdateView(UpdateView):
