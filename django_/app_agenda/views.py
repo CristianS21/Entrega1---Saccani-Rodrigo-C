@@ -20,6 +20,12 @@ def inicio (request):
 def usuario (request):
     return render (request, "app_agenda/plantilla_1.html")
 
+def acerca(request):
+      return render (request, "app_agenda/acerca.html")
+
+def contacto (request):
+      return render (request, "app_agenda/contacto.html")
+
 # VIEWS de MASCOTAS
 @login_required
 def mascotas (request):
