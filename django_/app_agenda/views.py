@@ -199,8 +199,6 @@ def registro (request):
 class CustomLogoutView(LogoutView):
     template_name = 'app_agenda/plantilla_inicio.html' 
 
-
-
 class ProfileUpdateView(UpdateView):
 
     model = User
@@ -213,7 +211,6 @@ class ProfileUpdateView(UpdateView):
 
     def get_object(self, queryset=None):
         return self.request.user
-
 
 @login_required
 def agregar_avatar(request):

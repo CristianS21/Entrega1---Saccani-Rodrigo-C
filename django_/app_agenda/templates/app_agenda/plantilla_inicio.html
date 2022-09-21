@@ -39,24 +39,68 @@
           <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
-          
-              </div><br>
-          <h3 class="text-center"> Cras faucibus condimentum odio. Sed ac ligula. Aliquam at eros.</h3><br>
-          
-          {% if mensaje %}
-          <span style="background-color: green;"> Felicitaciones!!! {{mensaje}}</span>
+                 {% if mensaje %}
+          <span style="background-color: green;"> Felicitaciones {{user}}!!! {{mensaje}}</span>
           {% endif %}
           
           {% if gracias %}
-          <span style="background-color: green;"> Gracias por utilizar BioAgenda!!! {{gracias}}</span>
+          <span style="background-color: green;"> Gracias por utilizar BioAgenda{{user}}!!! {{gracias}}</span>
           {% endif %}
 
           {% if error1 %}
-          <span style="background-color: red;"> Cuidado!!! {{error1}}</span>
+          <span style="background-color: red;"> Cuidado !!! {{error1}}</span>
           {% endif %}
-         
+           
           <h1>avatar</h1>
-          <img src="{{ user.avatar.imagen.url }}" />
+          <img src="{{ user.avatar.imagen.url }}" />        
+  <!-- Thumbnails -->
+  <div class="container thumbs">
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{% static 'app_agenda/imagenes/iinicio.jpg' %}" alt="" class="img-circle">
+        <div class="caption">
+          <h3 class="text-center">Interacciones</h3>
+         
+          <p class="text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut tincidunt volutpat urna quis dolor a felis congue sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation mco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{% static 'app_agenda/imagenes/ainicio1.jpg' %}" alt="" class="img-circle">
+        <div class="caption">
+          <h3 class="text-center">Animales</h3>
+         
+          <p class="text-center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo  </p>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6 col-md-4">
+      <div class="thumbnail">
+        <img src="{% static 'app_agenda/imagenes/pinicio.jpg' %}" alt="" class="img-circle" >
+        <div class="caption">
+          <h3 class="text-center">Plantas</h3>
+         
+          <p class="text-center">Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. Ut tincidunt volutpat urna quis dolor a felis congue vehicula. . </p>
+
+        </div>
+      </div>
+    </div>
+  </div><!-- End Thumbnails -->
+    <!-- Content -->
+    <div class="container">
+   
+      <h3 class="text-center">*** Bienvenidos a ArteBio ***</h3>
+      <br>
+      <p>Cras dapibus dapibus nisl. Vestibulum quis dolor a felis congue vehicula. Maecenas pede purus, tristique ac, tempus eget, egestas quis, mauris. Curabitur non eros. Nullam hendrerit biben justo. Fusce iaculis, est quis lacinia pretium, pede metus molestie lacus, at gravida wisi ante at libero fusce iaculis, est quis lacinia pretium per inceptos hymenaeos accumsan.</p>
+    </div><!-- End Content -->
+
+  
+ 
+   
+
           
       
           {% endblock contenido_base %}
