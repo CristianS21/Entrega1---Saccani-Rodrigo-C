@@ -63,6 +63,7 @@ def buscar_mascotas (request):
     else: 
         respuesta= "Error, no enviaste formulario"
     return render (request, "app_agenda/buscar_m_error.html",{"respuesta":respuesta} )
+
 @login_required    
 def editar_item_mascota (request, nombre):
     mascota_edit = Mascota.objects.get(nombre=nombre)
@@ -98,6 +99,7 @@ def plantas (request):
     borrado= request.GET.get("borrado",None)
     contexto ["borrado"] = borrado    
     return render (request, "app_agenda/plantilla_3.html",contexto)
+
 @login_required
 def eliminar_item_planta (request,especie):
     planta=Planta.objects.get(especie=especie)
@@ -106,6 +108,7 @@ def eliminar_item_planta (request,especie):
     url_final= f"{reverse ('Plantas')}?borrado={borrado_especie}"
   
     return redirect (url_final)
+
 @login_required
 def formulario_plantas (request):
     if request.method =='POST':
@@ -120,9 +123,11 @@ def formulario_plantas (request):
     else:
         formulario= form_plantas()
     return render (request, "app_agenda/form_plantas.html",{"formulario":formulario})
+
 @login_required
 def busqueda_plantas (request):
     return render (request, "app_agenda/busqueda_plantas.html")
+
 @login_required
 def buscar_plantas (request):
     if request.GET["especie"]:
@@ -132,6 +137,7 @@ def buscar_plantas (request):
     else: 
         respuesta= "Error, no enviaste formulario"
     return render (request, "app_agenda/buscar_p_error.html",{"respuesta":respuesta} ) 
+
 @login_required
 def editar_item_planta (request, especie):
     planta_edit = Planta.objects.get(especie=especie)
