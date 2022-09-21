@@ -178,11 +178,11 @@ def login_request(request):
             user = authenticate(username=usuario, password=contra)
             if user:
                 login(request=request, user=user)
-                return render(request, "app_agenda/plantilla_inicio.html", {"gracias":f"Bienvenido {usuario}"})
+                return render(request, "app_agenda/respuesta_login.html", {"gracias":f"Sentite muy bienvenido!!!"})
             else:
-                return render(request,"app_agenda/plantilla_inicio.html", {"error1":"Revisá los datos ingresados"})
+                return render(request,"app_agenda/respuesta_login.html", {"error1":"Revisá los datos ingresados"})
         else:
-            return render(request,"app_agenda/plantilla_inicio.html", {"error1":"Revisá los datos ingresados"})
+            return render(request,"app_agenda/respuesta_login.html", {"error1":"Revisá los datos ingresados"})
     form = AuthenticationForm() # GET
     return render(request,"app_agenda/login.html", {'form':form} )
 
@@ -195,9 +195,6 @@ def registro (request):
     else:
         formulario = UserRegisterForm()  # Formulario vacio para construir el html
     return render(request, "app_agenda/registro.html", {"form":formulario})
-
-class CustomLogoutView(LogoutView):
-    template_name = 'app_agenda/plantilla_inicio.html' 
 
 class ProfileUpdateView(UpdateView):
 
@@ -212,8 +209,12 @@ class ProfileUpdateView(UpdateView):
     def get_object(self, queryset=None):
         return self.request.user
 
+class CustomLogoutView(LogoutView):
+    template_name = 'app_agenda/despedida.html' 
+
 @login_required
 def agregar_avatar(request):
+
     if request.method == 'POST':
 
         form = AvatarFormulario (request.POST, request.FILES) #aquí me llega toda la información del html

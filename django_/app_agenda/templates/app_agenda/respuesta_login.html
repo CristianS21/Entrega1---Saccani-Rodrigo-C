@@ -1,0 +1,50 @@
+
+
+{% extends "app_agenda/plantilla_base.html" %}
+{% load static %}
+
+
+{% block contenido_base %}
+<div style="padding-top: 100px;"></div>
+<div style="padding-left: 107px;">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+   
+    {% if mensaje %}
+    <span > 😀 Felicitaciones {{user}}!!! {{mensaje}}</span>
+     
+    {% endif %}
+    
+    {% if gracias %}
+    <span > 😀 Gracias por utilizar ArteBio {{user}}!!! {{gracias}}</span>
+    <br><br>
+    
+    <a href="{% url 'Mascota' %}">"Animales "</a><br>
+    <a href="{% url 'Mascota' %}">"Plantas "</a><br>
+    <a href="{% url 'Mascota' %}">"Interacciones"</a><br>
+   
+   
+    {% endif %}
+    
+    {% if error1 %}
+    <span > 🙄 Cuidado !!! {{error1}}</span>
+    {% endif %}
+    
+</body>
+</html>
+{% endblock contenido_base %}
+<form action ="/buscar_plantas" method ='GET'>
+
+    <input type="text" name="especie" id="especie">
+    <input type ="submit" value="Buscar planta">
+
+</form>
