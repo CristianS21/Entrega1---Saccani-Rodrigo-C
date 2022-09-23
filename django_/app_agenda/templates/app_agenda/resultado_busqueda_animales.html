@@ -1,0 +1,25 @@
+{% extends "app_agenda/plantilla_base.html" %}
+
+{% block contenido_base %}
+<div style="padding-top: 100px;"></div>
+<div style="padding-left: 107px;">
+
+
+{% for animal in animales %}
+
+<p>Estás buscando a graffitis de: <b>{{animal.ciudad}}, {{animal.pais}}</b></p><br><br>
+
+<img src="{{animal.imagen.url}}" width="500"><br><br><br>
+
+<b>Fecha de fotografía:</b> <li>{{animal.fecha}}</li><br>
+
+<b>Autor de fotografía: </b><li>{{animal.autor}}</li><br>
+
+<b>Descripción:</b><li>{{animal.descripcion}}</li>
+
+{% endfor%}
+
+
+</ul>
+
+{% endblock contenido_base %}

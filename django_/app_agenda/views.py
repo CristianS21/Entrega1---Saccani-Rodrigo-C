@@ -65,13 +65,15 @@ def formulario_animales (request):
     
 @login_required
 def busqueda_animales (request):
-    return render (request, "app_agenda/busqueda_mascotas.html")
+    return render (request, "app_agenda/busqueda_animales.html")
 
 @login_required
 def buscar_animales(request):
     if request.GET["ciudad"]:
-        nombre=request.GET["ciudad"]
-        animales= Posteo_animales.objects.filter(nombre=nombre)
+        print ("1")
+        ciudad=request.GET["ciudad"]
+        print ("2")
+        animales= Posteo_animales.objects.filter(ciudad=ciudad)
         return render (request, "app_agenda/resultado_busqueda_animales.html", {"animales":animales}) 
     else: 
         respuesta= "Error, no enviaste formulario"
