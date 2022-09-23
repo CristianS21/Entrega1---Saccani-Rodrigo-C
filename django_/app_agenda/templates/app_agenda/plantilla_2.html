@@ -24,7 +24,7 @@ Bienvenidos a la sección de graffitis de <b>ANIMALES</b> : <br>
  <b>Descripción:</b> <td>{{posteo.descripcion}}</td><br><br>
 
 
-<td><a href="">Editar</a></td> - 
+<td><a href="{% url 'editar_item_animales' posteo.ciudad %}">Editar</a></td> - 
 <td><a href="">Eliminar</a></td>
 <br><br><br><br>
 {% endfor %} {% endblock contenido_base %}

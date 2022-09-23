@@ -80,28 +80,35 @@ def buscar_animales(request):
     return render (request, "app_agenda/buscar_m_error.html",{"respuesta":respuesta} )
 
 @login_required    
-def editar_item_animales (request, nombre):
-    mascota_edit = Posteo_animales.objects.get(nombre=nombre)
+def editar_item_animales (request, ciudad):
+    animal_edit = Posteo_animales.objects.get(ciudad=ciudad)
 
     if request.method == 'POST':
-        formulario = posteo_formulario_animales(request.POST)
+        formulario = posteo_formulario_animales(request.POST, request.FILES)
 
         if formulario.is_valid():
+            print ("0")
             data = formulario.cleaned_data
 
-            mascota_edit.nombre = data['nombre']
-            mascota_edit.especie = data['especie']
-            mascota_edit.sexo = data['sexo']
-            mascota_edit.fecha_de_nacimiento = data ['fecha_de_nacimiento']
-            mascota_edit.save()
+            animal_edit.imagen = data['imagen']
+            animal_edit.ciudad = data['ciudad']
+            animal_edit.pais = data['pais']
+            animal_edit.fecha = data['fecha']
+            animal_edit.autor = data ['autor']
+            animal_edit.descripcion = data ['descripcion']
+            animal_edit.save()
+            print ("1")
+            return redirect (reverse ('p_animal'))
 
-            return redirect (reverse ('Mascota'))
     else:  # GET
+        print ("2")
         inicial = {
-            'nombre': mascota_edit.nombre,
-            'especie': mascota_edit.especie,
-            'sexo': mascota_edit.sexo,
-            'fecha_de_nacimiento': mascota_edit.fecha_de_nacimiento,
+            'imagen': animal_edit.imagen,
+            'ciudad': animal_edit.ciudad,
+            'pais': animal_edit.pais,
+            'fecha': animal_edit.fecha,
+            'autor': animal_edit.autor,
+            'descripcion': animal_edit.descripcion,
         }
         formulario = posteo_formulario_animales (initial=inicial)
     return render (request, "app_agenda/form_posteo_a.html", {"formulario": formulario})
@@ -173,7 +180,7 @@ def editar_item_planta (request, especie):
             'especie': planta_edit.especie,
             'fecha_de_adopción': planta_edit.fecha_de_adopcion,            
         }
-        formulario = form_mascotas (initial=inicial)
+        formulario = form_plantas (initial=inicial)
     return render (request, "app_agenda/form_plantas.html", {"formulario": formulario})
 
 # VIEWS de USUARIO
