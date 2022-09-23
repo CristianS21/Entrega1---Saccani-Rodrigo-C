@@ -5,11 +5,14 @@
 
 <div style="padding-top: 100px;">
 <div style="padding-left: 107px;">
-{% if borrado %}
-<div class="eliminado"> Fue eliminado el item correspondiente a: {{borrado}}</div>
+Bienvenidos a la sección de graffitis de <b>ANIMALES</b> : <br>
+
+  {% if borrado %}
+<br><b><div class="eliminado"> </div>
+<FONT COLOR="red">Fue eliminado el item correspondiente a: {{borrado}}</FONT><br><br></b>
 {% endif %}
           
-Bienvenidos a la sección de graffitis de <b>ANIMALES</b> : <br>
+
 <br>
 <td><a href="{% url 'form_animales' %}"> Crear posteo </a></td><br><br>
 <td><a href="{% url 'busqueda_animales' %}">Buscar</a></td>
@@ -17,15 +20,16 @@ Bienvenidos a la sección de graffitis de <b>ANIMALES</b> : <br>
 {% for posteo in posteos %}
 <br><br><br><br>
 <img src="{{posteo.imagen.url}}" width="500"><br><br>
- <b>Ciudad:</b> <td>{{posteo.ciudad}}</td><br><br>
+<b>Id:</b> <td>{{posteo.id}}</td><br><br>
+<b>Ciudad:</b> <td>{{posteo.ciudad}}</td><br><br>
  <b>Pais:</b> <td>{{posteo.pais}}</td><br><br>
  <b>Fecha:</b> <td>{{posteo.fecha}}</td><br><br>
 <b>Autor:</b> <td>{{posteo.autor}}</td><br><br>
  <b>Descripción:</b> <td>{{posteo.descripcion}}</td><br><br>
 
 
-<td><a href="{% url 'editar_item_animales' posteo.ciudad %}">Editar</a></td> - 
-<td><a href="">Eliminar</a></td>
+<td><a href="{% url 'editar_item_animales' posteo.id %}">Editar</a></td> - 
+<td><a href="{% url 'eliminar_item_animales' posteo.id %}">Eliminar</a></td>
 <br><br><br><br>
 {% endfor %} {% endblock contenido_base %}
 

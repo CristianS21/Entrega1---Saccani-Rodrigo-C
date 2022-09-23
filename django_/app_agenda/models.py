@@ -11,6 +11,7 @@ class Usuario (models.Model):
     
 
 class Posteo_animales (models.Model):
+    id = models.IntegerField(primary_key=True)
     ciudad=models.CharField(max_length=60)
     pais=models.CharField(max_length=40)
     imagen=models.ImageField(upload_to='imagenes', null=True)

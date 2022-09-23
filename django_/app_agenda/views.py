@@ -38,11 +38,15 @@ def p_animal (request):
     return render (request, "app_agenda/plantilla_2.html", contexto)
 
 @login_required
-def eliminar_item_animales (request,ciudad):
-    posteo_a=Posteo_animales.objects.get(ciudad=ciudad)
-    borrado_nombre= posteo_a.ciudad
-    posteo_a.delete()
-    url_final= f"{reverse ('posteo_a')}?borrado={borrado_nombre}"
+def eliminar_item_animales (request,id):
+    print("0")
+    posteo = Posteo_animales.objects.get (id=id)
+    print("1")
+    borrado_ciudad= posteo.id
+    print("2")
+    posteo.delete()
+    print ("4")
+    url_final= f"{reverse ('p_animal')}?borrado={borrado_ciudad}"
     return redirect (url_final)
 
 @login_required
@@ -69,19 +73,19 @@ def busqueda_animales (request):
 
 @login_required
 def buscar_animales(request):
-    if request.GET["ciudad"]:
+    if request.GET["id"]:
         print ("1")
-        ciudad=request.GET["ciudad"]
+        id=request.GET["ciudad"]
         print ("2")
-        animales= Posteo_animales.objects.filter(ciudad=ciudad)
+        animales= Posteo_animales.objects.filter(id=id)
         return render (request, "app_agenda/resultado_busqueda_animales.html", {"animales":animales}) 
     else: 
         respuesta= "Error, no enviaste formulario"
     return render (request, "app_agenda/buscar_m_error.html",{"respuesta":respuesta} )
 
 @login_required    
-def editar_item_animales (request, ciudad):
-    animal_edit = Posteo_animales.objects.get(ciudad=ciudad)
+def editar_item_animales (request, id):
+    animal_edit = Posteo_animales.objects.get(id=id)
 
     if request.method == 'POST':
         formulario = posteo_formulario_animales(request.POST, request.FILES)
@@ -89,7 +93,7 @@ def editar_item_animales (request, ciudad):
         if formulario.is_valid():
             print ("0")
             data = formulario.cleaned_data
-
+            animal_edit.id = data['id']
             animal_edit.imagen = data['imagen']
             animal_edit.ciudad = data['ciudad']
             animal_edit.pais = data['pais']
@@ -103,6 +107,7 @@ def editar_item_animales (request, ciudad):
     else:  # GET
         print ("2")
         inicial = {
+            'id':animal_edit.id,
             'imagen': animal_edit.imagen,
             'ciudad': animal_edit.ciudad,
             'pais': animal_edit.pais,

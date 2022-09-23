@@ -11,8 +11,8 @@ urlpatterns = [
     path('form_animales/', views.formulario_animales, name="form_animales"),
     path('busqueda_animales/', views.busqueda_animales, name="busqueda_animales"),
     path('buscar_animales/', views.buscar_animales, name="buscar_animales"),
-    path('eliminar_item_animales/<ciudad>/', views.eliminar_item_animales, name="eliminar_item_animales"),
-    path('editar_item_animales/<ciudad>/', views.editar_item_animales, name="editar_item_animales"),
+    path('eliminar_item_animales/<int:id>/', views.eliminar_item_animales, name="eliminar_item_animales"),
+    path('editar_item_animales/<int:id>/', views.editar_item_animales, name="editar_item_animales"),
     
     # URLs de Planta! 
     

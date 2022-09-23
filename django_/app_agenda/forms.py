@@ -10,6 +10,7 @@ class form_plantas (forms.Form):
 
 
 class posteo_formulario_animales (forms.Form):
+    id = forms.IntegerField()
     ciudad= forms.CharField(max_length=60)
     pais= forms.CharField(max_length=40)
     imagen= forms.ImageField()
