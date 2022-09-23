@@ -6,13 +6,13 @@ urlpatterns = [
     path('', views.inicio,name="inicio"),
     #path('usuario/', views.usuario),
     
-    # URLs de Mascota! 
+    # URLs de posteos de ANIMALES! 
     path('p_animal/', views.p_animal, name="p_animal"),
-    path('form_mascotas/', views.formulario_mascota, name="form_mascotas"),
-    path('busqueda_mascotas/', views.busqueda_mascotas, name="busqueda_mascotas"),
-    path('buscar_mascotas/', views.buscar_mascotas, name="buscar_mascota"),
-    path('eliminar_item_mascota/<nombre>/', views.eliminar_item_mascota, name="eliminar_item_mascota"),
-    path('editar_item_mascota/<nombre>/', views.editar_item_mascota, name="editar_item_mascota"),
+    path('form_animales/', views.formulario_animales, name="form_animales"),
+    path('busqueda_animales/', views.busqueda_animales, name="busqueda_animales"),
+    path('buscar_animales/', views.buscar_animales, name="buscar_animales"),
+    path('eliminar_item_animales/<ciudad>/', views.eliminar_item_animales, name="eliminar_item_animales"),
+    path('editar_item_animales/<ciudad>/', views.editar_item_animales, name="editar_item_animales"),
     
     # URLs de Planta! 
     
@@ -23,9 +23,7 @@ urlpatterns = [
     path('eliminar_item_planta/<especie>/', views.eliminar_item_planta, name="eliminar_item_planta"),
     path('editar_item_planta/<especie>/', views.editar_item_planta, name="editar_item_planta"),
     
-    # URLs de Posteos
 
-    path('posteo/', views.posteo, name="posteo"),
     
    
     # URLs de Usuario!

@@ -9,11 +9,6 @@ class Usuario (models.Model):
     dni= models.IntegerField()
     email=models.EmailField()
     
-class Mascota (models.Model):
-    nombre= models.CharField(max_length=30)
-    especie= models.CharField(max_length=30)
-    sexo = models.CharField(max_length=30)
-    fecha_de_nacimiento= models.DateField()
 
 class Posteo_animales (models.Model):
     ciudad=models.CharField(max_length=60)
