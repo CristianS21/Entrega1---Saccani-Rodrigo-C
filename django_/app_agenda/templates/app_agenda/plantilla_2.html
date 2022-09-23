@@ -1,76 +1,33 @@
 {% extends "app_agenda/plantilla_base.html" %}
 {% load static %}
 
-
 {% block contenido_base %}
 
 <div style="padding-top: 100px;">
 <div style="padding-left: 107px;">
-
-Bienvenido a la sección MASCOTAS. <br>
-A continuación podrás generar un nuevo ingreso o buscar una mascota.
-<br>
-<br>
-
-<a href="{% url 'form_mascotas' %}">"Añadir mascota"</a><br>
-<a href="{% url 'busqueda_mascotas' %}">"Buscar mascota"</a><br><br>
-
-<table class="coder-table">
-    <tbody>
-        <style>
-            table.coder-table {
-              border:3px solid;
-            }
-            th,
-            td {
-              border:1px solid;
-              padding:5px 10px;
-            
-            }
-            .eliminado {background-color: rgb(163, 43, 43); font: 100;color: white;}
-          </style>
-
-   {% if borrado %}
-        <div class="eliminado"> Fue eliminado el item correspondiente a: {{borrado}}</div>
-          {% endif %}
+{% if borrado %}
+<div class="eliminado"> Fue eliminado el item correspondiente a: {{borrado}}</div>
+{% endif %}
           
-        
-      <tr><h3>TODAS TUS MASCOTAS  </h3>
-        <th>
-          <strong>Nombre</strong>
-        </th>
-        <th>
-          <strong>Especie</strong>
-        </th>
-        <th>
-            <strong>Sexo</strong>
-          </th>
-          <th>
-            <strong>Fecha de nacimiento</strong>
-          </th>
-        <th>Editar</th>
-        <th>Eliminar</th>
-      </tr>
-  
+Bienvenidos a la sección de graffitis de ANIMALES :
 
 
-      {% for mascota in mascotas %}
-      <tr>
-        <td>{{mascota.nombre}}</td> 
-        <td>{{mascota.especie}}</td>
-        <td>{{mascota.sexo}}</td>
-        <td>{{mascota.fecha_de_nacimiento}}</td>
-        <td><a href="{% url 'editar_item_mascota' mascota.nombre %}">Editar</a></td>
-        <td><a href="{% url 'eliminar_item_mascota' mascota.nombre %}">Eliminar</a></td>
-       
-      </tr>
 
-      {% endfor %}
-    </div>
-    </tbody>
-  </table><br><br><br>        
-  <h4 class="text-center"> Desde BioAgenda se promueve la adopción de mascotas sin hogar, no compres!!! </h4>
-{% endblock contenido_base %}
+
+{% for posteo in posteos %}
+<br><br><br><br>
+<img src="{{posteo.imagen.url}}" width="500"><br><br>
+Ciudad: <td>{{posteo.ciudad}}</td><br><br>
+Pais: <td>{{posteo.pais}}</td><br><br>
+Fecha: <td>{{posteo.fecha}}</td><br><br>
+Autor: <td>{{posteo.autor}}</td><br><br>
+Descripción: <td>{{posteo.descripcion}}</td><br><br>
+
+<td><a href="">Buscar</a></td>
+<td><a href="">Editar</a></td>
+<td><a href="">Eliminar</a></td>
+<br><br><br><br>
+{% endfor %} {% endblock contenido_base %}
 
 
 

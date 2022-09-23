@@ -11,8 +11,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
-from app_agenda.models import Posteo
-from app_agenda.forms import posteo_formulario
+from app_agenda.models import Posteo_animales
+from app_agenda.forms import posteo_formulario_animales
 
 def inicio (request):
     return render (request, "app_agenda/plantilla_inicio.html")
@@ -102,24 +102,25 @@ def editar_item_mascota (request, nombre):
 def posteo (request):
     if request.method =='POST':
 
-        formulario= posteo_formulario (request.POST,request.FILES)
+        formulario= posteo_formulario_animales (request.POST,request.FILES)
 
         if formulario.is_valid():
 
             data = formulario.cleaned_data
-            posteo1= Posteo (imagen= data ['imagen'],ciudad=data ['ciudad'],pais = data ['pais'],fecha =data['fecha'], autor=data['autor'], descripcion=data['descripcion'], )
+            posteo1= Posteo_animales (imagen= data ['imagen'],ciudad=data ['ciudad'],pais = data ['pais'],fecha =data['fecha'], autor=data['autor'], descripcion=data['descripcion'], )
             posteo1.save()
      
             return render (request, "app_agenda/plantilla_inicio.html")
         #return render(request, "app_agenda/plantilla_principal.html")
     else:  
-        formulario= posteo_formulario()  # Formulario vacio para construir el html
+        formulario= posteo_formulario_animales()  # Formulario vacio para construir el html
     return render(request, "app_agenda/form_posteo.html", {"formulario": formulario})
 
-def principal (request):
-    posteos = Posteo.objects.all()
+@login_required
+def p_animal (request):
+    posteos = Posteo_animales.objects.all()
     contexto= {"posteos":posteos}
-    return render (request, "app_agenda/plantilla_principal.html", contexto)
+    return render (request, "app_agenda/plantilla_2.html", contexto)
 
 #VIEWS de PLANTAS
 @login_required

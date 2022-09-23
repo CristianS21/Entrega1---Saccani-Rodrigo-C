@@ -7,7 +7,7 @@ urlpatterns = [
     #path('usuario/', views.usuario),
     
     # URLs de Mascota! 
-    path('mascotas/', views.mascotas, name="Mascota"),
+    path('p_animal/', views.p_animal, name="p_animal"),
     path('form_mascotas/', views.formulario_mascota, name="form_mascotas"),
     path('busqueda_mascotas/', views.busqueda_mascotas, name="busqueda_mascotas"),
     path('buscar_mascotas/', views.buscar_mascotas, name="buscar_mascota"),
@@ -26,7 +26,7 @@ urlpatterns = [
     # URLs de Posteos
 
     path('posteo/', views.posteo, name="posteo"),
-    path('principal/', views.principal, name="principal"),  
+    
    
     # URLs de Usuario!
     

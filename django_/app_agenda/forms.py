@@ -2,7 +2,7 @@ from django import forms
 from app_agenda.models import Avatar
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from app_agenda.models import Posteo
+from app_agenda.models import Posteo_animales
 
 class form_mascotas (forms.Form):
     nombre= forms.CharField()
@@ -15,7 +15,7 @@ class form_plantas (forms.Form):
     fecha_de_adopcion= forms.DateField()
 
 
-class posteo_formulario (forms.Form):
+class posteo_formulario_animales (forms.Form):
     ciudad= forms.CharField(max_length=60)
     pais= forms.CharField(max_length=40)
     imagen= forms.ImageField()
@@ -24,7 +24,7 @@ class posteo_formulario (forms.Form):
     descripcion=forms.CharField(max_length=250)
 
     class Meta:
-        model = Posteo
+        model = Posteo_animales
         fields = ['imagen']
 
 class UserRegisterForm (UserCreationForm):

@@ -15,7 +15,7 @@ class Mascota (models.Model):
     sexo = models.CharField(max_length=30)
     fecha_de_nacimiento= models.DateField()
 
-class Posteo (models.Model):
+class Posteo_animales (models.Model):
     ciudad=models.CharField(max_length=60)
     pais=models.CharField(max_length=40)
     imagen=models.ImageField(upload_to='imagenes', null=True)
