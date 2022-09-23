@@ -36,8 +36,9 @@
         </div>
         <nav role="navigation" class="collapse navbar-collapse navbar-right">   <!--menú-->
           <ul class="navbar-nav nav">
-            <li ><a href="{% url 'inicio' %}">Home</a></li>
+            <li ><a href="{% url 'inicio' %}">HOME</a></li>
             <li ><a href="{% url 'registro' %}">Registrarse</a></li>
+            
             {% if user.is_authenticated %}
             <li><a href="{% url 'logout' %}" >Cerrar sesión</a></li>  
             <li><a href="{% url 'editar_perfil' %}" >Editar Usuario</a></li>  
@@ -47,9 +48,10 @@
             <li><a href="{% url 'Login' %}" >Iniciar sesión</a></li>
             {% endif %}
 
-
+            <li><a href="">Interacciones</a></li>
             <li><a href="{% url 'Mascota' %}" >Animales</a></li>
             <li><a href="{% url 'Plantas' %}">Plantas</a></li>
+            
 
 
           </ul>

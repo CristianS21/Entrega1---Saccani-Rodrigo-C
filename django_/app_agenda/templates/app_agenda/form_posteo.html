@@ -1,0 +1,52 @@
+    
+    {% extends "app_agenda/plantilla_base.html" %}
+    {% load static %}
+    
+    
+    {% block contenido_base %}
+    <div style="padding-top: 100px;"></div>
+    <div style="padding-left: 107px;">
+    
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Document</title>
+    </head>
+    <body>
+        
+        <html lang="en">
+            <form enctype="multipart/form-data" method='POST'>
+                {% csrf_token %}
+            
+                POSTEO NUEVO :
+                <br>
+                <br>
+                <p> Graffiti
+                <input type="file" name="imagen">
+                </p>
+                <p> Ciudad
+               <input type="text" name="ciudad">
+               </p>
+               <p> País
+               <input type="text" name="pais">
+               </p>
+                <p> fecha
+                <input type="date" name="fecha">
+                </p>
+                <p> autor
+                <input type="text" name="autor">
+                </p>
+                   <p> descripcion
+                <input type="text" name="descripcion">
+                </p>
+                <input type="Submit" value="Enviar"/> 
+                </form>
+    
+</body>
+</html>
+
+{% endblock contenido_base %}
