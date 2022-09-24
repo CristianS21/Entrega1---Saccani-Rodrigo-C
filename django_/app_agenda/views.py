@@ -173,10 +173,10 @@ def buscar_plantas (request):
 @login_required
 def editar_item_plantas (request, ciudad):
     planta_edit = Posteo_plantas.objects.get(ciudad=ciudad)
-
+    print("1")
     if request.method == 'POST':
-        formulario = posteo_formulario_plantas (request.POST)
-
+        formulario = posteo_formulario_plantas (request.POST,request.FILES)
+        print ("2")
         if formulario.is_valid():
             data = formulario.cleaned_data
 
@@ -187,18 +187,18 @@ def editar_item_plantas (request, ciudad):
             planta_edit.autor = data ['autor']
             planta_edit.descripcion = data ['descripcion']
             planta_edit.save()
+            print ("3")
+            return redirect (reverse ('p_plantas'))
 
-            return redirect (reverse ('p_planta'))
-
-        else:  # GET
-     
-           inicial = {
-                'imagen': planta_edit.imagen,
-                'ciudad': planta_edit.ciudad,
-                'pais': planta_edit.pais,
-                'fecha': planta_edit.fecha,
-                'autor': planta_edit.autor,
-                'descripcion': planta_edit.descripcion,
+    else:  # GET
+        print("0")    
+        inicial = {
+            'imagen': planta_edit.imagen,
+            'ciudad': planta_edit.ciudad,
+            'pais': planta_edit.pais,
+            'fecha': planta_edit.fecha,
+            'autor': planta_edit.autor,
+            'descripcion': planta_edit.descripcion,
         }
         formulario = posteo_formulario_plantas (initial=inicial)
     return render (request, "app_agenda/form_posteo_p.html", {"formulario": formulario})
