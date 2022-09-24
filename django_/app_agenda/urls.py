@@ -14,7 +14,7 @@ urlpatterns = [
     path('eliminar_item_animales/<ciudad>/', views.eliminar_item_animales, name="eliminar_item_animales"),
     path('editar_item_animales/<ciudad>/', views.editar_item_animales, name="editar_item_animales"),
     
-    # URLs de Planta! 
+    # URLs de posteos de PLANTAS! 
     
     path('p_plantas/', views.p_plantas, name="p_plantas"),  
     path('form_plantas/', views.formulario_plantas, name="form_plantas"),  
@@ -23,7 +23,15 @@ urlpatterns = [
     path('eliminar_item_plantas/<ciudad>/', views.eliminar_item_plantas, name="eliminar_item_plantas"),
     path('editar_item_plantas/<ciudad>/', views.editar_item_plantas, name="editar_item_plantas"),
         
-   
+   # URLs de posteos de INTERACCIONES! 
+    
+    path('p_interacciones/', views.p_interacciones, name="p_interacciones"),  
+    path('form_interacciones/', views.formulario_interacciones, name="form_interacciones"),  
+    #path('busqueda_plantas/', views.busqueda_plantas, name="busqueda_plantas"),
+    #path('buscar_plantas/', views.buscar_plantas, name="buscar_plantas"),
+    #path('eliminar_item_plantas/<ciudad>/', views.eliminar_item_plantas, name="eliminar_item_plantas"),
+    #path('editar_item_plantas/<ciudad>/', views.editar_item_plantas, name="editar_item_plantas"),
+    
     # URLs de Usuario!
     
     path('login/', views.login_request, name='Login'),

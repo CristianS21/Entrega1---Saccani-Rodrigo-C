@@ -5,7 +5,6 @@ from .models import *
 admin.site.register(Usuario)
 admin.site.register(Posteo_animales)
 admin.site.register(Posteo_plantas)
+admin.site.register(Posteo_interacciones)
 
-
-admin.site.register(Planta)
 admin.site.register(Avatar)

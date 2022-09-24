@@ -1,8 +1,8 @@
 
 from django.http import HttpResponse
-from app_agenda.models import Posteo_animales, Posteo_plantas 
+from app_agenda.models import Posteo_animales, Posteo_plantas, Posteo_interacciones 
 from django.shortcuts import render, HttpResponse, redirect, reverse 
-from app_agenda.forms import posteo_formulario_animales, posteo_formulario_plantas, UserRegisterForm, UserUpdateForm, AvatarFormulario
+from app_agenda.forms import posteo_formulario_animales, posteo_formulario_plantas, UserRegisterForm, UserUpdateForm, AvatarFormulario, posteo_formulario_interacciones
 from django.views.generic import UpdateView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login,logout,authenticate
@@ -202,6 +202,34 @@ def editar_item_plantas (request, ciudad):
         }
         formulario = posteo_formulario_plantas (initial=inicial)
     return render (request, "app_agenda/form_posteo_p.html", {"formulario": formulario})
+
+# VIEWS de INTERACCIONES
+@login_required
+def p_interacciones (request):
+    posteos = Posteo_interacciones.objects.all()
+    contexto= {"posteos":posteos}
+    borrado= request.GET.get("borrado",None)
+    contexto ["borrado"] = borrado    
+    return render (request, "app_agenda/plantilla_4.html",contexto)
+
+@login_required
+def formulario_interacciones (request):
+    if request.method =='POST':
+
+        formulario= posteo_formulario_interacciones (request.POST, request.FILES)
+
+        if formulario.is_valid():
+
+            data = formulario.cleaned_data
+            posteo1= Posteo_interacciones (imagen= data ['imagen'],ciudad=data ['ciudad'],pais = data ['pais'],fecha =data['fecha'], autor=data['autor'], descripcion=data['descripcion'], )
+            posteo1.save()
+     
+            return render (request, "app_agenda/plantilla_inicio.html")
+        #return render(request, "app_agenda/plantilla_principal.html")
+    else:  
+        formulario= posteo_formulario_interacciones()  # Formulario vacio para construir el html
+    return render(request, "app_agenda/form_posteo_i.html", {"formulario": formulario})
+    
 
 
 # VIEWS de USUARIO
