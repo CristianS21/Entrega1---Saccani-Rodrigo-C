@@ -19,13 +19,14 @@
 </head>
 <body>
    
+    
     {% if mensaje %}
     <span > 😀 Felicitaciones {{user}}!!! {{mensaje}}</span>
      
     {% endif %}
     
     {% if gracias %}
-    <span > 😀 <b>Gracias</b> por utilizar ArteBio <b>{{user}}</b>>!!! {{gracias}}</span>
+    <span > 😀 <b>Gracias</b> por utilizar ArteBio <b>{{user}}</b>!!! {{gracias}}</span>
     <br><br>
 
     {% endif %}
@@ -37,9 +38,3 @@
 </body>
 </html>
 {% endblock contenido_base %}
-<form action ="/buscar_plantas" method ='GET'>
-
-    <input type="text" name="especie" id="especie">
-    <input type ="submit" value="Buscar planta">
-
-</form>

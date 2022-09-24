@@ -1,8 +1,8 @@
 
 from django.http import HttpResponse
-from app_agenda.models import Posteo_animales,Planta
+from app_agenda.models import Posteo_animales, Posteo_plantas 
 from django.shortcuts import render, HttpResponse, redirect, reverse 
-from app_agenda.forms import posteo_formulario_animales, form_plantas, UserRegisterForm, UserUpdateForm, AvatarFormulario
+from app_agenda.forms import posteo_formulario_animales, posteo_formulario_plantas, UserRegisterForm, UserUpdateForm, AvatarFormulario
 from django.views.generic import UpdateView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login,logout,authenticate
@@ -11,7 +11,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
-from app_agenda.models import Posteo_animales
+
 
 
 def inicio (request):
@@ -38,11 +38,11 @@ def p_animal (request):
     return render (request, "app_agenda/plantilla_2.html", contexto)
 
 @login_required
-def eliminar_item_animales (request,id):
+def eliminar_item_animales (request,ciudad):
     print("0")
-    posteo = Posteo_animales.objects.get (id=id)
+    posteo = Posteo_animales.objects.get (ciudad=ciudad)
     print("1")
-    borrado_ciudad= posteo.id
+    borrado_ciudad= posteo.ciudad
     print("2")
     posteo.delete()
     print ("4")
@@ -73,19 +73,19 @@ def busqueda_animales (request):
 
 @login_required
 def buscar_animales(request):
-    if request.GET["id"]:
+    if request.GET["ciudad"]:
         print ("1")
-        id=request.GET["ciudad"]
+        ciudad=request.GET["ciudad"]
         print ("2")
-        animales= Posteo_animales.objects.filter(id=id)
+        animales= Posteo_animales.objects.filter(ciudad=ciudad)
         return render (request, "app_agenda/resultado_busqueda_animales.html", {"animales":animales}) 
     else: 
         respuesta= "Error, no enviaste formulario"
     return render (request, "app_agenda/buscar_m_error.html",{"respuesta":respuesta} )
 
 @login_required    
-def editar_item_animales (request, id):
-    animal_edit = Posteo_animales.objects.get(id=id)
+def editar_item_animales (request, ciudad):
+    animal_edit = Posteo_animales.objects.get(ciudad = ciudad)
 
     if request.method == 'POST':
         formulario = posteo_formulario_animales(request.POST, request.FILES)
@@ -93,7 +93,7 @@ def editar_item_animales (request, id):
         if formulario.is_valid():
             print ("0")
             data = formulario.cleaned_data
-            animal_edit.id = data['id']
+
             animal_edit.imagen = data['imagen']
             animal_edit.ciudad = data['ciudad']
             animal_edit.pais = data['pais']
@@ -107,7 +107,7 @@ def editar_item_animales (request, id):
     else:  # GET
         print ("2")
         inicial = {
-            'id':animal_edit.id,
+
             'imagen': animal_edit.imagen,
             'ciudad': animal_edit.ciudad,
             'pais': animal_edit.pais,
@@ -118,38 +118,43 @@ def editar_item_animales (request, id):
         formulario = posteo_formulario_animales (initial=inicial)
     return render (request, "app_agenda/form_posteo_a.html", {"formulario": formulario})
 
-#VIEWS de PLANTAS
+
+
+#VIEWS de POSTEO PLANTAS
 @login_required
-def plantas (request):
-    plantas = Planta.objects.all()
-    contexto= {"plantas":plantas}
+def p_plantas (request):
+    posteos = Posteo_plantas.objects.all()
+    contexto= {"posteos":posteos}
     borrado= request.GET.get("borrado",None)
     contexto ["borrado"] = borrado    
     return render (request, "app_agenda/plantilla_3.html",contexto)
 
 @login_required
-def eliminar_item_planta (request,especie):
-    planta=Planta.objects.get(especie=especie)
-    borrado_especie= planta.especie
-    planta.delete()
-    url_final= f"{reverse ('Plantas')}?borrado={borrado_especie}"
+def eliminar_item_plantas (request,ciudad):
+    posteo= Posteo_plantas.objects.get(ciudad=ciudad)
+    borrado_ciudad= posteo.ciudad
+    posteo.delete()
+    url_final= f"{reverse ('p_plantas')}?borrado={borrado_ciudad}"
   
     return redirect (url_final)
 
 @login_required
 def formulario_plantas (request):
     if request.method =='POST':
-        formulario=form_plantas(request.POST)
-        
-        if formulario.is_valid():
-            data = formulario.cleaned_data       
 
-            planta1 = Planta (especie= data ['especie'], fecha_de_adopcion=data ['fecha_de_adopcion'])
-            planta1.save()
+        formulario= posteo_formulario_plantas (request.POST,request.FILES)
+
+        if formulario.is_valid():
+
+            data = formulario.cleaned_data
+            posteo1= Posteo_plantas (imagen= data ['imagen'],ciudad=data ['ciudad'],pais = data ['pais'],fecha =data['fecha'], autor=data['autor'], descripcion=data['descripcion'], )
+            posteo1.save()
+     
             return render (request, "app_agenda/plantilla_inicio.html")
-    else:
-        formulario= form_plantas()
-    return render (request, "app_agenda/form_plantas.html",{"formulario":formulario})
+        #return render(request, "app_agenda/plantilla_principal.html")
+    else:  
+        formulario= posteo_formulario_plantas()  # Formulario vacio para construir el html
+    return render(request, "app_agenda/form_posteo_p.html", {"formulario": formulario})
 
 @login_required
 def busqueda_plantas (request):
@@ -157,36 +162,47 @@ def busqueda_plantas (request):
 
 @login_required
 def buscar_plantas (request):
-    if request.GET["especie"]:
-        especie=request.GET["especie"]
-        plantas= Planta.objects.filter(especie=especie)
+    if request.GET["ciudad"]:
+        ciudad=request.GET["ciudad"]
+        plantas= Posteo_plantas.objects.filter(ciudad=ciudad)
         return render (request, "app_agenda/resultado_busqueda_plantas.html", {"plantas":plantas}) 
     else: 
         respuesta= "Error, no enviaste formulario"
     return render (request, "app_agenda/buscar_p_error.html",{"respuesta":respuesta} ) 
 
 @login_required
-def editar_item_planta (request, especie):
-    planta_edit = Planta.objects.get(especie=especie)
+def editar_item_plantas (request, ciudad):
+    planta_edit = Posteo_plantas.objects.get(ciudad=ciudad)
 
     if request.method == 'POST':
-        formulario = form_plantas(request.POST)
+        formulario = posteo_formulario_plantas (request.POST)
 
         if formulario.is_valid():
             data = formulario.cleaned_data
 
-            planta_edit.especie = data['especie']
-            planta_edit.fecha_de_adopcion = data['fecha_de_adopcion']
+            planta_edit.imagen = data['imagen']
+            planta_edit.ciudad = data['ciudad']
+            planta_edit.pais = data['pais']
+            planta_edit.fecha = data['fecha']
+            planta_edit.autor = data ['autor']
+            planta_edit.descripcion = data ['descripcion']
             planta_edit.save()
 
-            return redirect (reverse ('Plantas'))
-    else:  # GET
-        inicial = {
-            'especie': planta_edit.especie,
-            'fecha_de_adopción': planta_edit.fecha_de_adopcion,            
+            return redirect (reverse ('p_planta'))
+
+        else:  # GET
+     
+           inicial = {
+                'imagen': planta_edit.imagen,
+                'ciudad': planta_edit.ciudad,
+                'pais': planta_edit.pais,
+                'fecha': planta_edit.fecha,
+                'autor': planta_edit.autor,
+                'descripcion': planta_edit.descripcion,
         }
-        formulario = form_plantas (initial=inicial)
-    return render (request, "app_agenda/form_plantas.html", {"formulario": formulario})
+        formulario = posteo_formulario_plantas (initial=inicial)
+    return render (request, "app_agenda/form_posteo_p.html", {"formulario": formulario})
+
 
 # VIEWS de USUARIO
 
@@ -212,7 +228,7 @@ def registro (request):
         formulario = UserRegisterForm (request.POST)
         if formulario.is_valid():
             formulario.save()
-            return render(request, "app_agenda/plantilla_inicio.html", {"mensaje": "Usuario Creado :)"})
+            return render(request, "app_agenda/respuesta_registro.html", {"mensaje": "Usuario Creado :)"})
     else:
         formulario = UserRegisterForm()  # Formulario vacio para construir el html
     return render(request, "app_agenda/registro.html", {"form":formulario})

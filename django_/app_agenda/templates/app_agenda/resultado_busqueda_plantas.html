@@ -5,14 +5,19 @@
 <div style="padding-top: 100px;"></div>
 <div style="padding-left: 107px;">
 
-{%for planta in plantas%}
 
-<p>Estás buscando a: {{planta.especie}}</p>
-<li>{{planta.especie}}</li>
+    {% for planta in plantas %}
+<p>Graffitis de: <b>{{planta.ciudad}}</b>, {{planta.pais}} </p>
 
-<li>{{planta.fecha_de_adopcion}}</li>
+<img src="{{planta.imagen.url}}" width="500"><br><br><br>
 
-{%endfor%}
+<b>Fecha de fotografía:</b> <li>{{planta.fecha}}</li><br>
+
+<b>Autor de fotografía: </b><li>{{planta.autor}}</li><br>
+
+<b>Descripción:</b><li>{{planta.descripcion}}</li><br><br><br>
+
+{% endfor %}
 
 </ul>
 {% endblock contenido_base %}

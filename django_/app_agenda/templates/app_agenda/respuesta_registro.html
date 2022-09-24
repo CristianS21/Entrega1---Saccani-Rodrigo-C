@@ -1,0 +1,40 @@
+
+
+
+
+
+{% extends "app_agenda/plantilla_base.html" %}
+{% load static %}
+
+
+{% block contenido_base %}
+<div style="padding-top: 100px;"></div>
+<div style="padding-left: 107px;">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<body>
+{% if mensaje %}
+<span style="background-color: green;"> Bienvenido 😀!!! {{mensaje}}. Comience a disfrutar de <b> arteBio</b></span>
+{% endif %}
+
+{% if gracias %}
+<span style="background-color: green;"> Gracias por utilizar <b>ArteBio</b> 😀!!! {{gracias}}. Que disfrutes tu visita!!!</span>
+{% endif %}
+
+{% if error1 %}
+<span style="background-color: red;"> Cuidado 🤔!!! {{error1}}</span>
+{% endif %}
+
+
+
+</body>
+</html>
+{% endblock contenido_base %}

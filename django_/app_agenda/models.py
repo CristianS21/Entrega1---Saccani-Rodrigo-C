@@ -11,14 +11,28 @@ class Usuario (models.Model):
     
 
 class Posteo_animales (models.Model):
-    id = models.IntegerField(primary_key=True)
     ciudad=models.CharField(max_length=60)
     pais=models.CharField(max_length=40)
     imagen=models.ImageField(upload_to='imagenes', null=True)
     fecha=models.DateField()
-    autor=models.CharField(max_length=250)
-    descripcion= models.CharField(max_length=250)
+    autor=models.CharField(max_length=60)
+    descripcion= models.CharField(max_length=200)
+
+class Posteo_plantas (models.Model):
+    ciudad=models.CharField(max_length=60)
+    pais=models.CharField(max_length=40)
+    imagen=models.ImageField(upload_to='imagenes', null=True)
+    fecha=models.DateField()
+    autor=models.CharField(max_length=60)
+    descripcion= models.CharField(max_length=200)
     
+
+
+
+
+
+
+
 class Planta (models.Model):
     especie= models.CharField(max_length=30)
     fecha_de_adopcion= models.DateField()

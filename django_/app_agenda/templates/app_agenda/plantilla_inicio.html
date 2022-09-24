@@ -39,17 +39,7 @@
           <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
             <span class="glyphicon glyphicon-chevron-right"></span>
           </a>
-          {% if mensaje %}
-          <span style="background-color: green;"> Felicitaciones {{user}}!!! {{mensaje}}</span>
-          {% endif %}
-          
-          {% if gracias %}
-          <span style="background-color: green;"> Gracias por utilizar BioAgenda{{user}}!!! {{gracias}}</span>
-          {% endif %}
 
-          {% if error1 %}
-          <span style="background-color: red;"> Cuidado !!! {{error1}}</span>
-          {% endif %}
            
           <h1>avatar</h1>
           <img src="{{ user.avatar.imagen.url }}" />        

@@ -3,62 +3,35 @@
 
 
 {% block contenido_base %}
+
 <div style="padding-top: 100px;">
-<div style="padding-left: 107px;"></a>
+  <div style="padding-left: 107px;">
+  Bienvenidos a la sección de graffitis de <b>PLANTAS</b> : <br>
+  
+  {% if borrado %}
+  <br><b><div class="eliminado"> </div>
+  <FONT COLOR="red">Fue eliminado el item {{borrado}}</FONT><br><br></b>
+  {% endif %}
+            
+  
+  <br>
+  <td><a href="{% url 'form_plantas' %}"> Crear posteo </a></td><br><br>
+  <td><a href="{% url 'busqueda_plantas' %}">Buscar</a></td>
+  
+  {% for posteo in posteos %}
+  <br><br><br><br>
+  <img src="{{posteo.imagen.url}}" width="500"><br><br>
 
-Bienvenido a la sección PLANTAS. <br>
-A continuación podrás generar un nuevo ingreso. 
-<br>
-<br>
-
-<a href="{% url 'form_plantas' %}">"Añadir planta"</a><br>
-<a href="{% url 'busqueda_plantas' %}">"Buscar planta"</a><br><br><br>
-
-
-<table class="coder-table">
-    <tbody>
-        <style>
-            table.coder-table {
-              border:3px solid;
-            }
-            th,
-            td {
-              border:1px solid;
-              padding:5px 10px;
-            }
-            .eliminado {
-              background-color: red;
-            }
-            .eliminado {background-color: rgb(163, 43, 43); font: 100;color: white;}
-          </style>
-
-   {% if borrado %}
-        <div class="eliminado"> Fue eliminado el item correspondiente a: {{borrado}}
-          {% endif %}
-
-      <tr>
-        <th>
-          <strong>Especie</strong>
-        </th>
-        <th>
-          <strong>Fecha de adopción</strong>
-        </th>
-        <th>Editar</th>
-        <th>Eliminar</th>
-      </tr>
-
-
-      <h3>TODAS TUS PLANTAS </h3>     
-      {% for planta in plantas %}
-      <tr>
-        <td>{{planta.especie}}</td>
-        <td>{{planta.fecha_de_adopcion}}</td>
-       
-        <td><a href="{% url 'editar_item_planta' planta.especie %}">Editar</a></td>
-        <td><a href="{% url 'eliminar_item_planta' planta.especie %}">Eliminar</a></td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table><br><br><br>        
+  <b>Ciudad:</b> <td>{{posteo.ciudad}}</td><br><br>
+   <b>Pais:</b> <td>{{posteo.pais}}</td><br><br>
+   <b>Fecha:</b> <td>{{posteo.fecha}}</td><br><br>
+  <b>Autor:</b> <td>{{posteo.autor}}</td><br><br>
+   <b>Descripción:</b> <td>{{posteo.descripcion}}</td><br><br>
+  
+  
+  <td><a href="{% url 'editar_item_plantas' posteo.ciudad %}">Editar</a></td> - 
+  <td><a href="{% url 'eliminar_item_plantas' posteo.ciudad %}">Eliminar</a></td>
+  <br><br><br><br>
  
-{% endblock contenido_base %}
+  {% endfor %}
+  {% endblock contenido_base %}
