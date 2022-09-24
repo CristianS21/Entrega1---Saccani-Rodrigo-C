@@ -1,0 +1,22 @@
+{% extends "app_agenda/plantilla_base.html" %}
+
+{% block contenido_base %}
+
+<div style="padding-top: 100px;"></div>
+<div style="padding-left: 107px;">
+
+{% for interaccion in interacciones %}
+<p>Graffitis de: <b>{{interaccion.ciudad}}</b>, {{interaccion.pais}} </p>
+
+<img src="{{interaccion.imagen.url}}" width="500"><br><br><br>
+
+<b>Fecha de fotografía:</b> <li>{{interaccion.fecha}}</li><br>
+
+<b>Autor de fotografía: </b><li>{{interaccion.autor}}</li><br>
+
+<b>Descripción:</b><li>{{interaccion.descripcion}}</li><br><br><br>
+
+{% endfor %}
+
+</ul>
+{% endblock contenido_base %}

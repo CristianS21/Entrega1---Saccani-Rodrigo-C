@@ -15,7 +15,7 @@
     
     <br>
     <td><a href="{% url 'form_interacciones' %}"> Crear posteo </a></td><br><br>
-    <td><a href="">Buscar</a></td>
+    <td><a href="{% url 'busqueda_interacciones' %}">Buscar</a></td>
     
     {% for posteo in posteos %}
     <br><br><br><br>
@@ -28,8 +28,8 @@
      <b>Descripción:</b> <td>{{posteo.descripcion}}</td><br><br>
     
     
-    <td><a href="">Editar</a></td> - 
-    <td><a href="">Eliminar</a></td>
+    <td><a href="{% url 'editar_item_interacciones' posteo.ciudad %}">Editar</a></td> - 
+    <td><a href="{% url 'eliminar_item_interacciones' posteo.ciudad %}">Eliminar</a></td>
     <br><br><br><br>
 
     {% endfor %}

@@ -221,8 +221,8 @@ def formulario_interacciones (request):
         if formulario.is_valid():
 
             data = formulario.cleaned_data
-            posteo1= Posteo_interacciones (imagen= data ['imagen'],ciudad=data ['ciudad'],pais = data ['pais'],fecha =data['fecha'], autor=data['autor'], descripcion=data['descripcion'], )
-            posteo1.save()
+            posteo= Posteo_interacciones (imagen= data ['imagen'],ciudad=data ['ciudad'],pais = data ['pais'],fecha =data['fecha'], autor=data['autor'], descripcion=data['descripcion'], )
+            posteo.save()
      
             return render (request, "app_agenda/plantilla_inicio.html")
         #return render(request, "app_agenda/plantilla_principal.html")
@@ -230,7 +230,65 @@ def formulario_interacciones (request):
         formulario= posteo_formulario_interacciones()  # Formulario vacio para construir el html
     return render(request, "app_agenda/form_posteo_i.html", {"formulario": formulario})
     
+def busqueda_interacciones (request):
+    return render (request, "app_agenda/busqueda_interacciones.html")
 
+@login_required
+def buscar_interacciones (request):
+    
+    if request.GET["ciudad"]:
+        
+        ciudad=request.GET["ciudad"]
+        
+        interacciones= Posteo_interacciones.objects.filter(ciudad=ciudad)
+        return render (request, "app_agenda/resultado_busqueda_interacciones.html", {"interacciones":interacciones}) 
+    else: 
+        respuesta= "Error, no enviaste formulario"
+    return render (request, "app_agenda/buscar_p_error.html",{"respuesta":respuesta} ) 
+
+@login_required
+def editar_item_interacciones (request, ciudad):
+    interaccion_edit = Posteo_interacciones.objects.get(ciudad=ciudad)
+    print("1")
+    if request.method == 'POST':
+        formulario = posteo_formulario_interacciones (request.POST,request.FILES)
+        print ("2")
+        if formulario.is_valid():
+            data = formulario.cleaned_data
+
+            interaccion_edit.imagen = data['imagen']
+            interaccion_edit.ciudad = data['ciudad']
+            interaccion_edit.ciudad = data['ciudad']
+            interaccion_edit.ciudad = data['ciudad']
+            interaccion_edit.pais = data['pais']
+            interaccion_edit.fecha = data['fecha']
+            interaccion_edit.autor = data ['autor']
+            interaccion_edit.descripcion = data ['descripcion']
+            interaccion_edit.save()
+            print ("3")
+            return redirect (reverse ('p_interacciones'))
+
+    else:  # GET
+        print("0")    
+        inicial = {
+            'imagen': interaccion_edit.imagen,
+            'ciudad': interaccion_edit.ciudad,
+            'pais': interaccion_edit.pais,
+            'fecha': interaccion_edit.fecha,
+            'autor': interaccion_edit.autor,
+            'descripcion': interaccion_edit.descripcion,
+        }
+        formulario = posteo_formulario_interacciones(initial=inicial)
+    return render (request, "app_agenda/form_posteo_i.html", {"formulario": formulario})
+
+@login_required
+def eliminar_item_interacciones (request,ciudad):
+    posteo= Posteo_interacciones.objects.get(ciudad=ciudad)
+    borrado_ciudad= posteo.ciudad
+    posteo.delete()
+    url_final= f"{reverse ('p_interacciones')}?borrado={borrado_ciudad}"
+  
+    return redirect (url_final)
 
 # VIEWS de USUARIO
 

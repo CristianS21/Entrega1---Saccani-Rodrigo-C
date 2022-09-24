@@ -27,10 +27,10 @@ urlpatterns = [
     
     path('p_interacciones/', views.p_interacciones, name="p_interacciones"),  
     path('form_interacciones/', views.formulario_interacciones, name="form_interacciones"),  
-    #path('busqueda_plantas/', views.busqueda_plantas, name="busqueda_plantas"),
-    #path('buscar_plantas/', views.buscar_plantas, name="buscar_plantas"),
-    #path('eliminar_item_plantas/<ciudad>/', views.eliminar_item_plantas, name="eliminar_item_plantas"),
-    #path('editar_item_plantas/<ciudad>/', views.editar_item_plantas, name="editar_item_plantas"),
+    path('busqueda_interacciones/', views.busqueda_interacciones, name="busqueda_interacciones"),
+    path('buscar_interacciones/', views.buscar_interacciones, name="buscar_interacciones"),
+    path('eliminar_item_interacciones/<ciudad>/', views.eliminar_item_interacciones, name="eliminar_item_interacciones"),
+    path('editar_item_interacciones/<ciudad>/', views.editar_item_interacciones, name="editar_item_interacciones"),
     
     # URLs de Usuario!
     

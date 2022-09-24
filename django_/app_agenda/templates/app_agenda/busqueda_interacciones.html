@@ -1,0 +1,17 @@
+{% extends "app_agenda/plantilla_base.html" %}
+
+
+{% block contenido_base %}
+
+<div style="padding-top: 100px;"></div>
+<div style="padding-left: 107px;">
+
+<form action ="/buscar_interacciones" method ='GET'>
+
+    <input type="text" name="ciudad" id="ciudad">
+    <input type ="submit" value="Buscar por ciudad">
+
+</form>
+</div>
+
+{% endblock contenido_base %}
