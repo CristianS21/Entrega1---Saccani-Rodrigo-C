@@ -41,14 +41,16 @@
             <li><a href="{% url 'p_interacciones' %}">Interacciones</a></li>
             <li><a href="{% url 'p_animal' %}">Animales</a></li>
             <li><a href="{% url 'p_plantas' %}">Plantas</a></li>
-            <li ><a href="{% url 'registro' %}">Registrarse</a></li>
+            
             
             {% if user.is_authenticated %}
-
+            <li><a href="{% url 'editar_perfil' %}" > <picture style="position: relative; display: inline-block; vertical-align: middle; width: 30px; height: 30px; border-radius: 30px; overflow: hidden; margin-right: 10px;"><img style="width: 100%; position: absolute; top:50%; transform: translateY(-50%); left:0;" src="{{ user.avatar.imagen.url }}" /></picture>locolamber </a></li>
+ 
             <li><a href="{% url 'editar_perfil' %}" >Editar Usuario</a></li>  
             <li><a href="{% url 'agregar_avatar' %}" >Agregar Avatar</a></li>  
             <li><a href="{% url 'logout' %}" >Cerrar sesión</a></li>  
             {% else %}
+            <li ><a href="{% url 'registro' %}">Registrarse</a></li>
             <li><a href="{% url 'Login' %}" >Iniciar sesión</a></li>
             {% endif %}
 
@@ -96,13 +98,13 @@
               <div class="col-lg-6 h-100 text-right text-lg-end my-auto">
                   <ul class="list-inline mb-0">
                       <li class="list-inline-item me-4">
-                        <a href="https://www.facebook.com/cristian.saccani.3/"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.facebook.com/cristian.saccani.3/" target="_blank" ><i class="fab fa-facebook"></i></a>
                       </li>
                       <li class="list-inline-item me-4">
                         <a href="https://www.instagram.com/natgeo/"><i class="fab fa-twitter"></i></a>
                       </li>
                       <li class=" list-inline-item">
-                          <a href="https://www.instagram.com/cristian.saccani.3/"><i class="fab fa-instagram"></i></a>
+                          <a href="https://www.instagram.com/cristian.saccani.3/" target="_blank"><i class="fab fa-instagram"></i></a>
   
                       </li>
                   </ul>

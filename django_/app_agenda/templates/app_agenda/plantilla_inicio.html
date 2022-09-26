@@ -7,75 +7,78 @@
 
     <!-- Slide gallery -->
     <div class="jumbotron">
-        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-          <!-- Indicators -->
-          <ol class="carousel-indicators">
-            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-          </ol>
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active">
-              <img src="{% static 'app_agenda/imagenes/gallos.jpg' %} " alt="">
-              <div class="carousel-caption">
-              </div>
-            </div>
-            <div class="item">
-              <img src="{% static 'app_agenda/imagenes/selva.png' %} " alt="">
-              <div class="carousel-caption">
-              </div>
-            </div>
-            <div class="item">
-              <img src="{% static 'app_agenda/imagenes/pg.jpg' %} " alt="">
-              <div class="carousel-caption">
-              </div>
+      <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+          <div class="item active">
+            <img src="{% static 'app_agenda/imagenes/slide.jpg' %} " alt="">
+            <div class="carousel-caption">
             </div>
           </div>
-          <!-- Controls -->
-          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-          </a>
-          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-          </a>
+          <div class="item">
+            <img src="{% static 'app_agenda/imagenes/slide1.jpg' %} " alt="">
+            <div class="carousel-caption">
+            </div>
+          </div>
+          <div class="item">
+            <img src="{% static 'app_agenda/imagenes/slide2.jpg' %} " alt="">
+            <div class="carousel-caption">
+            </div>
+          </div>
+        </div>
+        <!-- Controls -->
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+    </div>
+      
 
            
-          <h1>avatar</h1>
-          <img src="{{ user.avatar.imagen.url }}" />        
-  <!-- Thumbnails -->
+          
+                 
+  
+          <!-- Thumbnails -->
   <div class="container thumbs">
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        <img src="{% static 'app_agenda/imagenes/iinicio.jpg' %}" alt="" class="img-circle">
+        <img src="{% static 'app_agenda/imagenes/fija.jpg' %}" alt="" class="img-circle">
         <div class="caption">
           <h3 class="text-center">Interacciones</h3>
-          <td><a href="{% url 'p_interacciones' %}">Ingresar</a></td>
-         
-          <p class="text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut tincidunt volutpat urna quis dolor a felis congue sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation mco laboris nisi ut aliquip ex ea commodo consequat. </p>
-
+             
+          <p class="text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut tincidunt volutpat urna quis dolor a felis congue sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation mco laboris nisi ut aliquip ex ea commodo consequat. 
+          <br><br> <a href="{% url 'p_interacciones' %}" class="btn btn-primary">Ingresar</a></p>
         </div>
       </div>
     </div>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        <img src="{% static 'app_agenda/imagenes/ainicio1.jpg' %}" alt="" class="img-circle">
+        <img src="{% static 'app_agenda/imagenes/fija1.jpg' %}" alt="" class="img-circle">
         <div class="caption">
           <h3 class="text-center">Animales</h3>
-          <td><a href="{% url 'p_animal' %}" >Ingresar</a></td>
-          <p class="text-center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo  </p>
-
+         
+          <p class="text-center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo  
+          <br><br><a href="{% url 'p_animal' %}" class="btn btn-primary" >Ingresar</a></p>
         </div>
       </div>
     </div>
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
-        <img src="{% static 'app_agenda/imagenes/pinicio.jpg' %}" alt="" class="img-circle" >
+        <img src="{% static 'app_agenda/imagenes/fija2.jpg' %}" alt="" class="img-circle" >
         <div class="caption">
           <h3 class="text-center">Plantas</h3>
-          <td><a href="{% url 'p_plantas' %}">Ingresar</a></td> 
-          <p class="text-center">Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. Ut tincidunt volutpat urna quis dolor a felis congue vehicula. . </p>
-
+           
+          <p class="text-center">Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. Ut tincidunt volutpat urna quis dolor a felis congue vehicula. 
+            <br><br> <a href="{% url 'p_plantas' %}" class="btn btn-primary">Ingresar</a></p>
         </div>
       </div>
     </div>
@@ -83,7 +86,7 @@
     <!-- Content -->
     <div class="container">
    
-      <h3 class="text-center"> * * * ArteBio * * * </h3>
+      <h1 class="text-center">  ArteBio  </h1>
       <h3 class="text-center"> paredes que hablan, ciudades que dicen </h3>
       <br>
       <p>Cras dapibus dapibus nisl. Vestibulum quis dolor a felis congue vehicula. Maecenas pede purus, tristique ac, tempus eget, egestas quis, mauris. Curabitur non eros. Nullam hendrerit biben justo. Fusce iaculis, est quis lacinia pretium, pede metus molestie lacus, at gravida wisi ante at libero fusce iaculis, est quis lacinia pretium per inceptos hymenaeos accumsan.</p>

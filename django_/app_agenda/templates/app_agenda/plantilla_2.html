@@ -16,11 +16,10 @@ Bienvenidos a la sección de graffitis de <b>ANIMALES</b> : <br>
 <br>
 <td><a href="{% url 'form_animales' %}"> * Crear posteo </a></td><br><br>
 <td><a href="{% url 'busqueda_animales' %}">* Buscar por ciudad</a></td>
-
-{% for posteo in posteos %}
-
 <br><br><br><br>
-<img src="{{posteo.imagen.url}}" width="500"><br><br>
+{% for posteo in posteos %}
+<div style="padding:20px; background: #fff; border-radius:8px; box-shadow: 0 3px 12px 0 rgba(0,0,0,.2); display: inline-block; margin: 0 20px 20px 0; vertical-align: top; max-width: 30%;">
+<img src="{{posteo.imagen.url}}" width="100%"><br><br>
 
 <b>Ciudad:</b> <td>{{posteo.ciudad}}</td><br><br>
  <b>Pais:</b> <td>{{posteo.pais}}</td><br><br>
@@ -31,7 +30,7 @@ Bienvenidos a la sección de graffitis de <b>ANIMALES</b> : <br>
 
 <td><a href="{% url 'editar_item_animales' posteo.ciudad %}">Editar</a></td> - 
 <td><a href="{% url 'eliminar_item_animales' posteo.ciudad %}">Eliminar</a></td>
-<br><br><br><br>
+</div>
 {% endfor %} {% endblock contenido_base %}
 
 
