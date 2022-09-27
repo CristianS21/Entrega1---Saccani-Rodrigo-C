@@ -14,7 +14,18 @@
 
 <li>Ávatar: <a href="{% url 'datos_usuario' %}" > <picture style="position: relative; display: inline-block; vertical-align: middle; width: 30px; height: 30px; border-radius: 30px; overflow: hidden; margin-right: 10px;"><img style="width: 100%; position: absolute; top:50%; transform: translateY(-50%); left:0;" src="{{ user.avatar.imagen.url }}" /></picture></a> <br>
 </li><br><br>
+
+{% if user.avatar %}
+<a href="" class="btn btn-primary" >Editar avatar</a></p>
+{% else %}
+<a href="" class="btn btn-primary" >Ingresar avatar</a></p>
+{% endif %}
+
+
+
+
+<br>
 <a href="{% url 'editar_perfil' %}" class="btn btn-primary" >Editar usuario</a></p>
-<a href="{% url 'agregar_avatar' %}" class="btn btn-primary" >Ingresar avatar</a></p>
+
 
 {% endblock contenido_base %}

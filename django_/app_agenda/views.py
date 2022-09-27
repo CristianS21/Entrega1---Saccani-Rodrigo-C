@@ -301,7 +301,7 @@ def login_request(request):
             user = authenticate(username=usuario, password=contra)
             if user:
                 login(request=request, user=user)
-                return render(request, "app_agenda/respuesta_login.html", {"gracias":f"Sentite muy bienvenido!!!"})
+                return render(request, "app_agenda/respuesta_login.html", {"gracias":f"Ya podés ver los posteos!!!"})
             else:
                 return render(request,"app_agenda/respuesta_login.html", {"error1":"Revisá los datos ingresados"})
         else:
@@ -333,6 +333,7 @@ class ProfileUpdateView(UpdateView):
         return self.request.user
 
 class CustomLogoutView(LogoutView):
+  
     template_name = 'app_agenda/despedida.html' 
 
 @login_required
@@ -350,7 +351,6 @@ def agregar_avatar(request):
 
     form = AvatarFormulario() #Formulario vacio para construir el html
     return render(request, "app_agenda/form_avatar.html", {"form":form})
-
     
 def datos_usuario (request):
     return render (request, "app_agenda/datos_usuario.html")
