@@ -17,12 +17,12 @@
 </head>
 <body>
     <form action="/login/" method="POST">
-        Ingresá los datos requeridos para acceder a tu usuario en <b>ArteBio</b>:<br><br>
+      <h4>  Ingresá los datos requeridos para acceder a tu usuario en <b>ArteBio</b>:<br><br><br></h4>
 
         {%csrf_token%}
         {{form.as_p}}
 <br>
-        <button type="submit" >Iniciar sesión</button>
+        <button type="submit" >Iniciar sesión</button><br><br><br>
     </form>
 </body>
 </html>

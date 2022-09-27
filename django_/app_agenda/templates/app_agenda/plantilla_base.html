@@ -44,11 +44,12 @@
             
             
             {% if user.is_authenticated %}
-            <li><a href="{% url 'editar_perfil' %}" > <picture style="position: relative; display: inline-block; vertical-align: middle; width: 30px; height: 30px; border-radius: 30px; overflow: hidden; margin-right: 10px;"><img style="width: 100%; position: absolute; top:50%; transform: translateY(-50%); left:0;" src="{{ user.avatar.imagen.url }}" /></picture>locolamber </a></li>
+            <li><a href="{% url 'logout' %}" >Cerrar sesión</a></li>    
+             <li><a href="{% url 'editar_perfil' %}" > 
+              <li><a href="{% url 'datos_usuario' %}" > <picture style="position: relative; display: inline-block; vertical-align: middle; width: 30px; height: 30px; border-radius: 30px; overflow: hidden; margin-right: 10px;"><img style="width: 100%; position: absolute; top:50%; transform: translateY(-50%); left:0;" src="{{ user.avatar.imagen.url }}" /></picture>{{user}} </a></li>
+              
  
-            <li><a href="{% url 'editar_perfil' %}" >Editar Usuario</a></li>  
-            <li><a href="{% url 'agregar_avatar' %}" >Agregar Avatar</a></li>  
-            <li><a href="{% url 'logout' %}" >Cerrar sesión</a></li>  
+       
             {% else %}
             <li ><a href="{% url 'registro' %}">Registrarse</a></li>
             <li><a href="{% url 'Login' %}" >Iniciar sesión</a></li>

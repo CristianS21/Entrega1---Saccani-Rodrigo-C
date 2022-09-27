@@ -173,10 +173,10 @@ def buscar_plantas (request):
 @login_required
 def editar_item_plantas (request, ciudad):
     planta_edit = Posteo_plantas.objects.get(ciudad=ciudad)
-    print("1")
+ 
     if request.method == 'POST':
         formulario = posteo_formulario_plantas (request.POST,request.FILES)
-        print ("2")
+     
         if formulario.is_valid():
             data = formulario.cleaned_data
 
@@ -350,3 +350,7 @@ def agregar_avatar(request):
 
     form = AvatarFormulario() #Formulario vacio para construir el html
     return render(request, "app_agenda/form_avatar.html", {"form":form})
+
+    
+def datos_usuario (request):
+    return render (request, "app_agenda/datos_usuario.html")

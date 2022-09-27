@@ -45,6 +45,8 @@ urlpatterns = [
     path('acerca_de_mi/', views.acerca, name="acerca"),
     path('contacto/', views.contacto, name="contacto"),
 
+    path('datos_usuario/', views.datos_usuario, name="datos_usuario"),
+
 
 
 ]

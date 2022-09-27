@@ -5,7 +5,7 @@
 {% block contenido_base %}
 <div style="padding-top: 100px;">
     <div style="padding-left: 107px;">
-    Bienvenidos a la sección de graffitis de <b>INTERACCIONES</b> : <br>
+        <h4>Bienvenidos a la sección de graffitis de <b>INTERACCIONES</b> : <br></h4>
     
     {% if borrado %}
     <br><b><div class="eliminado"> </div>
@@ -14,8 +14,8 @@
               
     
     <br>
-    <td><a href="{% url 'form_interacciones' %}"> * Crear posteo </a></td><br><br>
-    <td><a href="{% url 'busqueda_interacciones' %}"> * Buscar por ciudad</a></td>
+    <h5><td><a href="{% url 'form_interacciones' %}"> * Crear posteo </h5></a></td><br>
+    <h5><td><a href="{% url 'busqueda_interacciones' %}"> * Buscar por ciudad</a></td></h5>
     
     {% for posteo in posteos %}
     <br><br><br><br>

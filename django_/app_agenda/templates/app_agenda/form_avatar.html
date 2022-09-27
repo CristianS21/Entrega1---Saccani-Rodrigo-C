@@ -6,10 +6,10 @@
 
 
 <br>
-<h3>Cargar Avatar</h3><br>
+<h3>Personalizá tu usuario ingresando un ávatar</h3><br>
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p  }}
-    <input type="submit" value="Guardar avatar">
+    <input type="submit" value="Guardar avatar"><br><br><br>
 </form>
 {% endblock contenido_base %}

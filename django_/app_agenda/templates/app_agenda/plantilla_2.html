@@ -5,7 +5,7 @@
 
 <div style="padding-top: 100px;">
 <div style="padding-left: 107px;">
-Bienvenidos a la sección de graffitis de <b>ANIMALES</b> : <br>
+<h4>Bienvenidos a la sección de graffitis de <b>ANIMALES</b> : <br></h4>
 
 {% if borrado %}
 <br><b><div class="eliminado"> </div>
@@ -14,11 +14,11 @@ Bienvenidos a la sección de graffitis de <b>ANIMALES</b> : <br>
           
 
 <br>
-<td><a href="{% url 'form_animales' %}"> * Crear posteo </a></td><br><br>
-<td><a href="{% url 'busqueda_animales' %}">* Buscar por ciudad</a></td>
+<h5><td><a href="{% url 'form_animales' %}"> * Crear posteo </a></td><br><br></h5>
+<h5><td><a href="{% url 'busqueda_animales' %}">* Buscar por ciudad</a></td></h5>
 <br><br><br><br>
 {% for posteo in posteos %}
-<div style="padding:20px; background: #fff; border-radius:8px; box-shadow: 0 3px 12px 0 rgba(0,0,0,.2); display: inline-block; margin: 0 20px 20px 0; vertical-align: top; max-width: 30%;">
+<div style="padding:20px; background: rgb(219, 219, 219); border-radius:8px; box-shadow: 0 3px 12px 0 rgba(0,0,0,.2); display: inline-block; margin: 0 20px 20px 0; vertical-align: top; max-width: 30%;">
 <img src="{{posteo.imagen.url}}" width="100%"><br><br>
 
 <b>Ciudad:</b> <td>{{posteo.ciudad}}</td><br><br>
@@ -28,8 +28,8 @@ Bienvenidos a la sección de graffitis de <b>ANIMALES</b> : <br>
  <b>Descripción:</b> <td>{{posteo.descripcion}}</td><br><br>
 
 
-<td><a href="{% url 'editar_item_animales' posteo.ciudad %}">Editar</a></td> - 
-<td><a href="{% url 'eliminar_item_animales' posteo.ciudad %}">Eliminar</a></td>
+<h5><td><a href="{% url 'editar_item_animales' posteo.ciudad %}">Editar</a></td>   -  
+<td><a href="{% url 'eliminar_item_animales' posteo.ciudad %}">Eliminar</a></td></h5>
 </div>
 {% endfor %} {% endblock contenido_base %}
 

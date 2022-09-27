@@ -17,20 +17,14 @@
 </head>
 <body>
     <form method="post">
-        Gracias por elegir <b>ArteBio</b>. Esperamos que disfrutes tu visita. <br><br><br>
+      <h4>  Gracias por elegir <b>ArteBio</b>. Esperamos que disfrutes tu visita. <br><br><br></h4>
+
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Registrarse" />
+        <input type="submit" value="Registrarse" /><br><br>
       </form>
 </body>
 </html>
 {% endblock contenido_base %}
 
 
-<form action="/login/" method='POST'>
-       
-        {%csrf_token%}
-        {{form.as_p}}
-
-        <button type="submit" >Registrarse</button>
-    </form>
