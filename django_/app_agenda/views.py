@@ -85,7 +85,7 @@ def buscar_animales(request):
 
 @login_required    
 def editar_item_animales (request, ciudad):
-    animal_edit = Posteo_animales.objects.get(ciudad = ciudad)
+    animal_edit = Posteo_animales.objects.get(ciudad=ciudad)
 
     if request.method == 'POST':
         formulario = posteo_formulario_animales(request.POST, request.FILES)
@@ -299,7 +299,7 @@ def login_request(request):
             user = authenticate(username=usuario, password=contra)
             if user:
                 login(request=request, user=user)
-                return render(request, "app_agenda/respuesta_login.html", {"gracias":f"Ya podés ver los posteos!!!"})
+                return render(request, "app_agenda/respuesta_login.html", {"gracias":f"Ya podés ingresar a los posteos!!!"})
             else:
                 return render(request,"app_agenda/respuesta_login.html", {"error1":"Revisá los datos ingresados"})
         else:

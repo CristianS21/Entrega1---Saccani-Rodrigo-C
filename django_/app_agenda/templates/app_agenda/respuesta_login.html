@@ -33,13 +33,48 @@
     <br> <a href="{% url 'p_animal' %}" class="btn btn-primary">Animales</a></p>
     <br> <a href="{% url 'p_plantas' %}" class="btn btn-primary">Plantas</a></p><br>
     
-
+        <!-- Thumbnails -->
+        <div class="container thumbs">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="{% static 'app_agenda/imagenes/fija.jpg' %}" alt="" class="img-circle">
+                <div class="caption">
+                  <h3 class="text-center">Interacciones</h3>
+                     
+                  <p class="text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut tincidunt volutpat urna quis dolor a felis congue sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation mco laboris nisi ut aliquip ex ea commodo consequat. 
+                  <br><br> <a href="{% url 'p_interacciones' %}" class="btn btn-primary">Ingresar</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="{% static 'app_agenda/imagenes/fija1.jpg' %}" alt="" class="img-circle">
+                <div class="caption">
+                  <h3 class="text-center">Animales</h3>
+                 
+                  <p class="text-center">Lorem ipsum dolor sit amet, to make a type specimen book. It has survived not only five centuries,consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo  
+                  <br><br><a href="{% url 'p_animal' %}" class="btn btn-primary" >Ingresar</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="{% static 'app_agenda/imagenes/fija2.jpg' %}" alt="" class="img-circle" >
+                <div class="caption">
+                  <h3 class="text-center">Plantas</h3>
+                   
+                  <p class="text-center">Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. Ut tincidunt volutpat urna quis dolor a felis to make a type specimen book. It has survived congue vehicula. 
+                    <br><br> <a href="{% url 'p_plantas' %}" class="btn btn-primary">Ingresar</a></p>
+                </div>
+              </div>
+            </div>
 
     {% endif %}
     
     {% if error1 %}
-    <span > 🙄 Cuidado !!! {{error1}}</span>
-    {% endif %}
+    <h4><span > 🙄 Cuidado !!! {{error1}}</span></h4><br>
+    <br><br> <a href="{% url 'Login' %}" class="btn btn-primary">Iniciá sesión</a></p>
+    {% endif %}<br><br><br><br><br><br>
     
 </body>
 </html>

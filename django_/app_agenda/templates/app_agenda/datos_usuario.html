@@ -7,8 +7,8 @@
 <div style="padding-top: 100px;"></div>
 <div style="padding-left: 107px;">
 
-<h2>Datos de usuario:</h2>
-<br>
+<h4>Datos de usuario:</h4>
+<br><br>
 <li>Nombre de usuario:  <b>{{user}}</b><br><br></li>
 <li>E-mail: <b>{{user.email}}</b><br><br></li>
 
@@ -19,12 +19,12 @@
 </li><br><br>
 {% else %}
 <li>Ávatar: <b>Aún no tenés ávatar</li></b>
-<br><br><a href="" class="btn btn-primary" >Ingresar avatar</a></p>
+<br><br><a href="{% url 'agregar_avatar' %}" class="btn btn-primary" >Ingresar ávatar</a></p>
 
 {% endif %}
 
 <br>
-<a href="" class="btn btn-primary" >Editar usuario</a></p>
+<a href="{% url 'editar_perfil' %}" class="btn btn-primary" >Editar usuario</a></p>
 
 
 {% endblock contenido_base %}
