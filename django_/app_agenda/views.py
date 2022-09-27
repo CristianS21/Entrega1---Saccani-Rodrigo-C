@@ -258,8 +258,6 @@ def editar_item_interacciones (request, ciudad):
 
             interaccion_edit.imagen = data['imagen']
             interaccion_edit.ciudad = data['ciudad']
-            interaccion_edit.ciudad = data['ciudad']
-            interaccion_edit.ciudad = data['ciudad']
             interaccion_edit.pais = data['pais']
             interaccion_edit.fecha = data['fecha']
             interaccion_edit.autor = data ['autor']
@@ -343,7 +341,7 @@ def agregar_avatar(request):
 
         form = AvatarFormulario (request.POST, request.FILES) #aquí me llega toda la información del html
 
-        if form.is_valid:   #Si pasó la validación de Django
+        if form.is_valid():   #Si pasó la validación de Django
             avatar = form.save()
             avatar.user = request.user
             avatar.save()
@@ -351,6 +349,8 @@ def agregar_avatar(request):
 
     form = AvatarFormulario() #Formulario vacio para construir el html
     return render(request, "app_agenda/form_avatar.html", {"form":form})
-    
+
+@login_required  
 def datos_usuario (request):
     return render (request, "app_agenda/datos_usuario.html")
+
