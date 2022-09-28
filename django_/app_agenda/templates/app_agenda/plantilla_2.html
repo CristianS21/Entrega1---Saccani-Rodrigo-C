@@ -30,7 +30,7 @@
  <b>Descripción:</b> <td>{{posteo.descripcion}}</td><br>
 
 <h5><td><a href="{% url 'editar_item_animales' posteo.ciudad %}">Editar</a></td>   -  
-<td><a href="{% url 'eliminar_item_animales' posteo.ciudad %}">Eliminar</a></td></h5>
+<td><a href="{% url 'eliminar_item_animales' posteo.id %}">Eliminar</a></td></h5>
 </div>
 {% endfor %}
 

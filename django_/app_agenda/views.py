@@ -38,15 +38,15 @@ def p_animal (request):
     return render (request, "app_agenda/plantilla_2.html", contexto)
 
 @login_required
-def eliminar_item_animales (request,ciudad):
+def eliminar_item_animales (request,id):
     print("0")
-    posteo = Posteo_animales.objects.get (ciudad=ciudad)
+    posteo = Posteo_animales.objects.get (id=id)
     print("1")
-    borrado_ciudad= posteo.ciudad
+    borrado_id= posteo.ciudad
     print("2")
     posteo.delete()
     print ("4")
-    url_final= f"{reverse ('p_animal')}?borrado={borrado_ciudad}"
+    url_final= f"{reverse ('p_animal')}?borrado={borrado_id}"
     return redirect (url_final)
 
 @login_required
@@ -130,11 +130,11 @@ def p_plantas (request):
     return render (request, "app_agenda/plantilla_3.html",contexto)
 
 @login_required
-def eliminar_item_plantas (request,ciudad):
-    posteo= Posteo_plantas.objects.get(ciudad=ciudad)
-    borrado_ciudad= posteo.ciudad
+def eliminar_item_plantas (request,id):
+    posteo= Posteo_plantas.objects.get(id=id)
+    borrado_id= posteo.ciudad
     posteo.delete()
-    url_final= f"{reverse ('p_plantas')}?borrado={borrado_ciudad}"
+    url_final= f"{reverse ('p_plantas')}?borrado={borrado_id}"
   
     return redirect (url_final)
 
