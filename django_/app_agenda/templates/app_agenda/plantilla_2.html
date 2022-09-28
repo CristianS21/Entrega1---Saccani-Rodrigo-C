@@ -9,7 +9,7 @@
 
 {% if borrado %}
 <br><b><div class="eliminado"> </div>
-<FONT COLOR="red">Fue eliminado el posteo {{borrado}}</FONT><br><br></b>
+<FONT COLOR="red">Fue eliminado el item {{borrado}}</FONT><br><br></b>
 {% endif %}
           
 
@@ -20,7 +20,7 @@
 
 {% if posteos %}
 {% for posteo in posteos %}
-<div style="padding:20px; background: rgb(241, 240, 240); border-radius:8px; box-shadow: 0 3px 12px 0 rgba(0,0,0,.2); display: inline-block; margin: 0 20px 20px 0; vertical-align: top; max-width: 30%;">
+<div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba(0,0,0,.2); display: inline-block; margin: 0 20px 20px 0; vertical-align: top; max-width: 30%;">
 <img src="{{posteo.imagen.url}}" width="100%"><br><br>
 
 <b>Ciudad:</b> <td>{{posteo.ciudad}}</td><br><br>
@@ -32,6 +32,7 @@
 <h5><td><a href="{% url 'editar_item_animales' posteo.id %}">Editar</a></td>   -  
 <td><a href="{% url 'eliminar_item_animales' posteo.id %}">Eliminar</a></td></h5>
 </div>
+
 {% endfor %}
 
 {% else %}

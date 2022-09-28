@@ -31,8 +31,8 @@ def contacto (request):
 
 @login_required
 def p_animal (request):
-    posteos = Posteo_animales.objects.all()
-    contexto= {"posteos":posteos}
+    posteos_a = Posteo_animales.objects.all()
+    contexto= {"posteos":posteos_a}
     borrado= request.GET.get("borrado",None)
     contexto ["borrado"] = borrado   
     return render (request, "app_agenda/plantilla_2.html", contexto)
@@ -91,7 +91,7 @@ def editar_item_animales (request, id):
         formulario = posteo_formulario_animales(request.POST, request.FILES)
 
         if formulario.is_valid():
-            print ("0")
+            
             data = formulario.cleaned_data
 
             animal_edit.imagen = data['imagen']
