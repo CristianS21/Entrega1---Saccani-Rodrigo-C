@@ -28,7 +28,12 @@
     {% if gracias %}
     <h4><span > 😀 <b>Bienvenido {{user}}</b>! {{gracias}}</span></h4>
     <br><br>
-
+    {% endif %}
+    
+    {% if error1 %}
+    <h4><span > 🙄 Cuidado !!! {{error1}}</span></h4><br>
+    <br><br> <a href="{% url 'Login' %}" class="btn btn-primary">Iniciá sesión</a></p>
+    {% endif %}<br><br><br><br><br><br>
     <br><a href="{% url 'p_interacciones' %}" class="btn btn-primary">Interacciones</a></p>
     <br> <a href="{% url 'p_animal' %}" class="btn btn-primary">Animales</a></p>
     <br> <a href="{% url 'p_plantas' %}" class="btn btn-primary">Plantas</a></p><br>
@@ -69,12 +74,6 @@
               </div>
             </div>
 
-    {% endif %}
-    
-    {% if error1 %}
-    <h4><span > 🙄 Cuidado !!! {{error1}}</span></h4><br>
-    <br><br> <a href="{% url 'Login' %}" class="btn btn-primary">Iniciá sesión</a></p>
-    {% endif %}<br><br><br><br><br><br>
     
 </body>
 </html>

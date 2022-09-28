@@ -17,11 +17,11 @@
 </head>
 <body>
     <form method="post">
-      <h4>  Gracias por elegir <b>ArteBio</b>. Esperamos que disfrutes tu visita. <br><br><br></h4>
+      <h4>  Estos son los campos posibles de editar:<br><br><br></h4>
 
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Registrarse" /><br><br>
+        <input type="submit" value="Ingresar datos" /><br><br>
       </form>
 </body>
 </html>

@@ -16,7 +16,7 @@
     <br>
     <h5><td><a href="{% url 'form_interacciones' %}"> * Crear posteo </a></td><br><br></h5>
     <h5><td><a href="{% url 'busqueda_interacciones' %}"> * Buscar por ciudad</a></td></h5>
-    
+    {% if posteos %}
     {% for posteo in posteos %}
     <br><br><br><br>
     <img src="{{posteo.imagen.url}}" width="500"><br><br>
@@ -33,4 +33,7 @@
     <br><br><br><br>
 
     {% endfor %}
+    {% else %}
+<h3>Actualmente no hay posteos en esta sección</h3>
+{% endif %}
     {% endblock contenido_base %}
