@@ -280,11 +280,11 @@ def editar_item_interacciones (request, ciudad):
     return render (request, "app_agenda/form_posteo_i.html", {"formulario": formulario})
 
 @login_required
-def eliminar_item_interacciones (request,ciudad):
-    posteo= Posteo_interacciones.objects.get(ciudad=ciudad)
-    borrado_ciudad= posteo.ciudad
+def eliminar_item_interacciones (request,id):
+    posteo= Posteo_interacciones.objects.get(id=id)
+    borrado_id= posteo.ciudad
     posteo.delete()
-    url_final= f"{reverse ('p_interacciones')}?borrado={borrado_ciudad}"
+    url_final= f"{reverse ('p_interacciones')}?borrado={borrado_id}"
   
     return redirect (url_final)
 

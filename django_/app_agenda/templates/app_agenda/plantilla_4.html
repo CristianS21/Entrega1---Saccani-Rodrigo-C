@@ -9,7 +9,7 @@
     
     {% if borrado %}
     <br><b><div class="eliminado"> </div>
-    <FONT COLOR="red">Fue eliminado el item {{borrado}}</FONT><br><br></b>
+    <FONT COLOR="red">Fue eliminado posteo de {{borrado}}</FONT><br><br></b>
     {% endif %}
               
     
@@ -29,7 +29,7 @@
     
     
     <td><a href="{% url 'editar_item_interacciones' posteo.ciudad %}">Editar</a></td> - 
-    <td><a href="{% url 'eliminar_item_interacciones' posteo.ciudad %}">Eliminar</a></td>
+    <td><a href="{% url 'eliminar_item_interacciones' posteo.id%}">Eliminar</a></td>
     <br><br><br><br>
 
     {% endfor %}

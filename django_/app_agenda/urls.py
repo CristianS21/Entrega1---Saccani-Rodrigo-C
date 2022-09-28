@@ -29,7 +29,7 @@ urlpatterns = [
     path('form_interacciones/', views.formulario_interacciones, name="form_interacciones"),  
     path('busqueda_interacciones/', views.busqueda_interacciones, name="busqueda_interacciones"),
     path('buscar_interacciones/', views.buscar_interacciones, name="buscar_interacciones"),
-    path('eliminar_item_interacciones/<ciudad>/', views.eliminar_item_interacciones, name="eliminar_item_interacciones"),
+    path('eliminar_item_interacciones/<int:id>/', views.eliminar_item_interacciones, name="eliminar_item_interacciones"),
     path('editar_item_interacciones/<ciudad>/', views.editar_item_interacciones, name="editar_item_interacciones"),
     
     # URLs de Usuario!
