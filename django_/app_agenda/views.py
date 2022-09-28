@@ -84,8 +84,8 @@ def buscar_animales(request):
     return render (request, "app_agenda/buscar_m_error.html",{"respuesta":respuesta} )
 
 @login_required    
-def editar_item_animales (request, ciudad):
-    animal_edit = Posteo_animales.objects.get(ciudad=ciudad)
+def editar_item_animales (request, id):
+    animal_edit = Posteo_animales.objects.get(id=id)
 
     if request.method == 'POST':
         formulario = posteo_formulario_animales(request.POST, request.FILES)
@@ -171,8 +171,8 @@ def buscar_plantas (request):
     return render (request, "app_agenda/buscar_p_error.html",{"respuesta":respuesta} ) 
 
 @login_required
-def editar_item_plantas (request, ciudad):
-    planta_edit = Posteo_plantas.objects.get(ciudad=ciudad)
+def editar_item_plantas (request, id):
+    planta_edit = Posteo_plantas.objects.get(id=id)
  
     if request.method == 'POST':
         formulario = posteo_formulario_plantas (request.POST,request.FILES)
@@ -247,8 +247,8 @@ def buscar_interacciones (request):
     return render (request, "app_agenda/buscar_p_error.html",{"respuesta":respuesta} ) 
 
 @login_required
-def editar_item_interacciones (request, ciudad):
-    interaccion_edit = Posteo_interacciones.objects.get(ciudad=ciudad)
+def editar_item_interacciones (request, id):
+    interaccion_edit = Posteo_interacciones.objects.get(id=id)
     print("1")
     if request.method == 'POST':
         formulario = posteo_formulario_interacciones (request.POST,request.FILES)

@@ -12,7 +12,7 @@ urlpatterns = [
     path('busqueda_animales/', views.busqueda_animales, name="busqueda_animales"),
     path('buscar_animales/', views.buscar_animales, name="buscar_animales"),
     path('eliminar_item_animales/<int:id>/', views.eliminar_item_animales, name="eliminar_item_animales"),
-    path('editar_item_animales/<ciudad>/', views.editar_item_animales, name="editar_item_animales"),
+    path('editar_item_animales/<int:id>/', views.editar_item_animales, name="editar_item_animales"),
     
     # URLs de posteos de PLANTAS! 
     
@@ -21,7 +21,7 @@ urlpatterns = [
     path('busqueda_plantas/', views.busqueda_plantas, name="busqueda_plantas"),
     path('buscar_plantas/', views.buscar_plantas, name="buscar_plantas"),
     path('eliminar_item_plantas/<int:id>/', views.eliminar_item_plantas, name="eliminar_item_plantas"),
-    path('editar_item_plantas/<ciudad>/', views.editar_item_plantas, name="editar_item_plantas"),
+    path('editar_item_plantas/<int:id>/', views.editar_item_plantas, name="editar_item_plantas"),
         
    # URLs de posteos de INTERACCIONES! 
     
@@ -30,7 +30,7 @@ urlpatterns = [
     path('busqueda_interacciones/', views.busqueda_interacciones, name="busqueda_interacciones"),
     path('buscar_interacciones/', views.buscar_interacciones, name="buscar_interacciones"),
     path('eliminar_item_interacciones/<int:id>/', views.eliminar_item_interacciones, name="eliminar_item_interacciones"),
-    path('editar_item_interacciones/<ciudad>/', views.editar_item_interacciones, name="editar_item_interacciones"),
+    path('editar_item_interacciones/<int:id>/', views.editar_item_interacciones, name="editar_item_interacciones"),
     
     # URLs de Usuario!
     
