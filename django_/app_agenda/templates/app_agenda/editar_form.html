@@ -1,0 +1,19 @@
+{% extends "app_agenda/plantilla_base.html" %}
+{% load static %}
+
+
+{% block contenido_base %}
+
+<div style="padding-top: 100px;"></div>
+<div style="padding-left: 107px;">
+   
+    <b>EDICIÓN DE CAMPOS:</b<br><br><br>
+    <form enctype= "multipart/form-data" method='POST'> 
+        {% csrf_token %}   
+        
+        {{formulario.as_p}}
+
+        <input type="Submit" value="Editar"/> 
+    </form>
+
+{% endblock contenido_base %}    

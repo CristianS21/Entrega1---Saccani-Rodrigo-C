@@ -62,7 +62,7 @@ def formulario_animales (request):
             posteo1.save()
      
             return render (request, "app_agenda/plantilla_inicio.html")
-        #return render(request, "app_agenda/plantilla_principal.html")
+
     else:  
         formulario= posteo_formulario_animales()  # Formulario vacio para construir el html
     return render(request, "app_agenda/form_posteo_a.html", {"formulario": formulario})
@@ -101,11 +101,11 @@ def editar_item_animales (request, id):
             animal_edit.autor = data ['autor']
             animal_edit.descripcion = data ['descripcion']
             animal_edit.save()
-            print ("1")
+          
             return redirect (reverse ('p_animal'))
 
     else:  # GET
-        print ("2")
+  
         inicial = {
 
             'imagen': animal_edit.imagen,
@@ -116,7 +116,7 @@ def editar_item_animales (request, id):
             'descripcion': animal_edit.descripcion,
         }
         formulario = posteo_formulario_animales (initial=inicial)
-    return render (request, "app_agenda/form_posteo_a.html", {"formulario": formulario})
+    return render (request, "app_agenda/editar_form.html", {"formulario": formulario})
 
 
 
@@ -201,7 +201,7 @@ def editar_item_plantas (request, id):
             'descripcion': planta_edit.descripcion,
         }
         formulario = posteo_formulario_plantas (initial=inicial)
-    return render (request, "app_agenda/form_posteo_p.html", {"formulario": formulario})
+    return render (request, "app_agenda/editar_form.html", {"formulario": formulario})
 
 # VIEWS de INTERACCIONES
 @login_required
@@ -249,10 +249,10 @@ def buscar_interacciones (request):
 @login_required
 def editar_item_interacciones (request, id):
     interaccion_edit = Posteo_interacciones.objects.get(id=id)
-    print("1")
+ 
     if request.method == 'POST':
         formulario = posteo_formulario_interacciones (request.POST,request.FILES)
-        print ("2")
+
         if formulario.is_valid():
             data = formulario.cleaned_data
 
@@ -277,7 +277,7 @@ def editar_item_interacciones (request, id):
             'descripcion': interaccion_edit.descripcion,
         }
         formulario = posteo_formulario_interacciones(initial=inicial)
-    return render (request, "app_agenda/form_posteo_i.html", {"formulario": formulario})
+    return render (request, "app_agenda/editar_form.html", {"formulario": formulario})
 
 @login_required
 def eliminar_item_interacciones (request,id):
@@ -336,17 +336,13 @@ class CustomLogoutView(LogoutView):
 
 @login_required
 def agregar_avatar(request):
-
     if request.method == 'POST':
-
         form = AvatarFormulario (request.POST, request.FILES) #aquí me llega toda la información del html
-
         if form.is_valid():   #Si pasó la validación de Django
             avatar = form.save()
             avatar.user = request.user
             avatar.save()
             return redirect(reverse('inicio'))
-
     form = AvatarFormulario() #Formulario vacio para construir el html
     return render(request, "app_agenda/form_avatar.html", {"form":form})
 
