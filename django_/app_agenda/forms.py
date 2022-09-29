@@ -16,7 +16,6 @@ class posteo_formulario_animales (forms.Form):
         model = Posteo_animales
         fields = ['imagen']
 
-
 class posteo_formulario_plantas (forms.Form):
     ciudad= forms.CharField(max_length=60)
     pais= forms.CharField(max_length=40)

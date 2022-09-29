@@ -80,8 +80,8 @@ def buscar_animales(request):
         animales= Posteo_animales.objects.filter(ciudad=ciudad)
         return render (request, "app_agenda/resultado_busqueda_animales.html", {"animales":animales}) 
     else: 
-        respuesta= "Error, no enviaste formulario"
-    return render (request, "app_agenda/buscar_m_error.html",{"respuesta":respuesta} )
+        respuesta= "Cuidado! Enviaste el formulario vacío"
+    return render (request, "app_agenda/buscar_a_error.html",{"respuesta":respuesta} )
 
 @login_required    
 def editar_item_animales (request, id):
@@ -167,7 +167,7 @@ def buscar_plantas (request):
         plantas= Posteo_plantas.objects.filter(ciudad=ciudad)
         return render (request, "app_agenda/resultado_busqueda_plantas.html", {"plantas":plantas}) 
     else: 
-        respuesta= "Error, no enviaste formulario"
+        respuesta= "Cuidado! Enviaste el formulario vacío"
     return render (request, "app_agenda/buscar_p_error.html",{"respuesta":respuesta} ) 
 
 @login_required
@@ -243,8 +243,8 @@ def buscar_interacciones (request):
         interacciones= Posteo_interacciones.objects.filter(ciudad=ciudad)
         return render (request, "app_agenda/resultado_busqueda_interacciones.html", {"interacciones":interacciones}) 
     else: 
-        respuesta= "Error, no enviaste formulario"
-    return render (request, "app_agenda/buscar_p_error.html",{"respuesta":respuesta} ) 
+        respuesta= "Cuidado! Enviaste el formulario vacío"
+    return render (request, "app_agenda/buscar_i_error.html",{"respuesta":respuesta} ) 
 
 @login_required
 def editar_item_interacciones (request, id):
