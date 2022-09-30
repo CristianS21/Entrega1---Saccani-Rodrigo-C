@@ -6,15 +6,15 @@
 <div style="padding-left: 107px;">
 
 {% for interaccion in interacciones %}
-<p>Graffitis de: <b>{{interaccion.ciudad}}</b>, {{interaccion.pais}} </p>
-
-<img src="{{interaccion.imagen.url}}" width="500"><br><br><br>
+<p>Graffitis de: <b>{{interaccion.ciudad}}</b>, {{interaccion.pais}} </p><br>
+<div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba(0,0,0,.2); display: inline-block; margin: 0 20px 20px 0; vertical-align: top; max-width: 30%;">
+    <img src="{{interaccion.imagen.url}}" width="100%"><br><br><br>
 
 <b>Fecha de fotografía:</b> <li>{{interaccion.fecha}}</li><br>
 
 <b>Autor de fotografía: </b><li>{{interaccion.autor}}</li><br>
 
-<b>Descripción:</b><li>{{interaccion.descripcion}}</li><br><br><br>
+<b>Descripción:</b><li>{{interaccion.descripcion}}</li><br></div>
 
 {% endfor %}
 

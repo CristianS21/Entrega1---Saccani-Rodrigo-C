@@ -15,11 +15,12 @@
     
     <br>
     <h5><td><a href="{% url 'form_interacciones' %}"> * Crear posteo </a></td><br><br></h5>
-    <h5><td><a href="{% url 'busqueda_interacciones' %}"> * Buscar por ciudad</a></td></h5>
+    <h5><td><a href="{% url 'busqueda_interacciones' %}"> * Buscar por ciudad</a></td></h5><br>
     {% if posteos %}
     {% for posteo in posteos %}
-    <br><br><br><br>
-    <img src="{{posteo.imagen.url}}" width="500"><br><br>
+    <div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba(0,0,0,.2); display: inline-block; margin: 0 20px 20px 0; vertical-align: top; max-width: 30%;">
+    
+    <img src="{{posteo.imagen.url}}" width="100%"><br><br>
   
     <b>Ciudad:</b> <td>{{posteo.ciudad}}</td><br><br>
      <b>Pais:</b> <td>{{posteo.pais}}</td><br><br>
@@ -28,9 +29,9 @@
      <b>Descripción:</b> <td>{{posteo.descripcion}}</td><br><br>
     
     
-    <td><a href="{% url 'editar_item_interacciones' posteo.id%}">Editar</a></td> - 
-    <td><a href="{% url 'eliminar_item_interacciones' posteo.id%}">Eliminar</a></td>
-    <br><br><br><br>
+    <h5><td><a href="{% url 'editar_item_interacciones' posteo.id%}">Editar</a></td> - 
+    <td><a href="{% url 'eliminar_item_interacciones' posteo.id%}">Eliminar</a></td></h5>
+    </div>
 
     {% endfor %}
     {% else %}

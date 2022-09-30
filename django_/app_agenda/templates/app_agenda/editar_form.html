@@ -11,26 +11,7 @@
     <form enctype= "multipart/form-data" method='POST'> 
         {% csrf_token %}   
         
-        <p> Imagen
-            <input type="file" name="imagen">
-            </p>
-            <p> Ciudad
-           <input type="text" name="ciudad">
-           </p>
-           <p> País
-           <input type="text" name="pais">
-            </p>
-            <p> Fecha de fotografía
-            <input type="date" name="fecha">
-            </p>
-        
-            <p> Autor de fotografía
-            <input type="text" name="autor">
-            </p>
-                 
-                <p> Descripción
-                <textarea rows="4" name="descripcion"></textarea>
-                </p>
+       {{formulario.as_p}}
 
         <input type="Submit" value="Editar"/> 
     </form>
