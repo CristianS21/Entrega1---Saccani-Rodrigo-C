@@ -4,7 +4,7 @@
 
 <div style="padding-top: 100px;"></div>
 <div style="padding-left: 107px;">
-
+{% if plantas %}
     <h4>Resultados de tu búsqueda: </h4><br><br>
     {% for planta in plantas %}
 
@@ -27,6 +27,14 @@
     <td><a href="{% url 'eliminar_item_plantas' planta.id %}">Eliminar</a></td></h5>
     </div>
 {% endfor %}
+{% else %}
+<div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba
+(0,0,0,.2); display: block; margin: 50px auto; width: 400px; text-align: center;">
+<h4> <span style="display: block; font-size: 100px; margin-bottom: 20px;"> 🤔 </span>No existen resultados para tu búsqueda</h4>
+</div>  
+ <div style="text-align: center">
+<br> <a href="{% url 'busqueda_animales' %}" class="btn btn-primary">Nueva búsqueda</a></p></div>
+{% endif %}
 
 </ul>
 {% endblock contenido_base %}
