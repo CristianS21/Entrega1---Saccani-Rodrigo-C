@@ -22,21 +22,13 @@
 </head>
 <body>
 {% if mensaje %}
-<span><h4> {{mensaje}} 😀 Iniciá sesión y disfrutá tu visita a<b> ArteBio</b></span></h4><br>
-
-<br><br> <a href="{% url 'Login' %}" class="btn btn-primary">Iniciar sesión</a></p>
+<div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba
+  (0,0,0,.2); display: block; margin: 50px auto; width: 400px; text-align: center;">
+  <h4> <span style="display: block; font-size: 100px; margin-bottom: 20px;"> 😀 </span> {{mensaje}}  <br>Iniciá sesión y disfrutá tu visita a<b> ArteBio</b> </h4>
+  </div>  
+  <div style="text-align: center">
+<br><br> <a href="{% url 'Login' %}" class="btn btn-primary">Iniciar sesión</a></p></div>
 {% endif %}
-
-{% if gracias %}
-<span style="background-color: green;"> Gracias por utilizar <b>ArteBio</b> 😀!!! {{gracias}} Que disfrutes tu visita!!!</span>
-{% endif %}
-
-{% if error1 %}
-<span style="background-color: red;"> Cuidado 🤔!!! {{error1}}</span>
-
-<br><br> <a href="{% url 'Login' %}" class="btn btn-primary">Ingresar</a></p>
-{% endif %}
-
 
 
 </body>

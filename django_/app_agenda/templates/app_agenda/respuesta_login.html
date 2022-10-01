@@ -1,8 +1,5 @@
-
-
 {% extends "app_agenda/plantilla_base.html" %}
 {% load static %}
-
 
 {% block contenido_base %}
 <div style="padding-top: 100px;"></div>
@@ -20,7 +17,8 @@
 <body>
       
     {% if mensaje %}
-   <h4> <span > 😀 Felicitaciones {{user}}!!! {{mensaje}}</span></h4>
+    <br><br><br><br<br><br><br><br>
+    <h4> <span > 😀 Felicitaciones {{user}}!!! {{mensaje}}</span></h4>
         <!-- Thumbnails -->
         <div class="container thumbs">
           <div class="col-sm-6 col-md-4">
@@ -60,10 +58,10 @@
     
     {% if gracias %}
     <div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba(0,0,0,.2); display: block; margin: 50px auto; width: 400px; text-align: center;">
-      <h4> <span style="display: block; font-size: 100px; margin-bottom: 20px;"> 😀 </span><b>Bienvenida/o {{user}}! {{gracias}} </h4>
-      </div>  
-   
-   <!-- Thumbnails -->
+      <h4> <span style="display: block; font-size: 100px; margin-bottom: 20px;"> 😀 </span><b>Bienvenida/o {{user}}! {{gracias}} </b></h4>
+      </div>  <br><br><br><br><br><br><br><br>
+
+      <!-- Thumbnails -->
    
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
@@ -71,7 +69,7 @@
         <div class="caption">
           <h3 class="text-center">Interacciones</h3>
              
-          <p class="text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, ut tincidunt volutpat urna quis dolor a felis congue sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation mco laboris nisi ut aliquip ex ea commodo consequat. 
+          <p class="text-center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit, urna quis dolor a felis congue sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation mco laboris nisi ut aliquip ex ea commodo consequat. 
           <br><br> <a href="{% url 'p_interacciones' %}" class="btn btn-primary">Ingresar</a></p>
         </div>
       </div>
@@ -94,20 +92,21 @@
           <h3 class="text-center">Plantas</h3>
            
           <p class="text-center">Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. Ut tincidunt volutpat urna quis dolor a felis to make a type specimen book. It has survived congue vehicula. 
-           <a href="{% url 'p_plantas' %}" class="btn btn-primary">Ingresar</a></p>
+          <br><br> <a href="{% url 'p_plantas' %}" class="btn btn-primary">Ingresar</a></p>
         </div>
       </div>
     </div>
     {% endif %}
     
-    {% if error1 %}
-    <div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba
+  {% if error1 %}
+  <div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba
   (0,0,0,.2); display: block; margin: 50px auto; width: 400px; text-align: center;">
-  <h4> <span style="display: block; font-size: 100px; margin-bottom: 20px;"> 🙄 </span>Cuidado !!! <br> Hasta la {{error1}}</h4>
+  <h4> <span style="display: block; font-size: 100px; margin-bottom: 20px;"> 🙄 </span>Cuidado !!! <br> {{error1}}</h4>
   </div>  
+  
   <div style="text-align: center">
   <a href="{% url 'Login' %}" class="btn btn-primary">Iniciá sesión</a></p></div> 
-    {% endif %}
+  {% endif %}
          
 
    

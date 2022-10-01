@@ -5,7 +5,7 @@
 {% block contenido_base %}
 <div style="padding-top: 100px;">
     <div style="padding-left: 107px;">
-        <h4>Bienvenidos a la sección de graffitis de <b>INTERACCIONES</b> : <br></h4>
+        <h4>Bienvenidos a la sección de murales de <b>INTERACCIONES</b> : <br></h4>
     
     {% if borrado %}
     <br><b><div class="eliminado"> </div>
@@ -16,8 +16,10 @@
     <br>
     <h5><td><a href="{% url 'form_interacciones' %}"> * Crear posteo </a></td><br><br></h5>
     <h5><td><a href="{% url 'busqueda_interacciones' %}"> * Buscar por ciudad</a></td></h5><br>
+   
     {% if posteos %}
     {% for posteo in posteos %}
+    
     <div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba(0,0,0,.2); display: inline-block; margin: 0 20px 20px 0; vertical-align: top; max-width: 30%;">
     
     <img src="{{posteo.imagen.url}}" width="100%"><br><br>
@@ -35,6 +37,10 @@
 
     {% endfor %}
     {% else %}
-<h3>Actualmente no hay posteos en esta sección</h3>
-{% endif %}
+    
+    <div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba
+      (0,0,0,.2); display: block; margin: 50px auto; width: 400px; text-align: center;">
+      <h4> <span style="display: block; font-size: 100px; margin-bottom: 20px;"> 🛑 </span> Atención!!! <br>Actualmente no hay posteos en esta sección<br>Sé el primero en publicar </h4>
+      </div> 
+      {% endif%}
     {% endblock contenido_base %}

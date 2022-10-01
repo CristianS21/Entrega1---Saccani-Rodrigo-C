@@ -4,19 +4,28 @@
 
 <div style="padding-top: 100px;"></div>
 <div style="padding-left: 107px;">
+<br>
 
+<h4>Resultados de tu búsqueda: </h4><br><br>
 {% for interaccion in interacciones %}
-<p>Graffitis de: <b>{{interaccion.ciudad}}</b>, {{interaccion.pais}} </p><br>
+
 <div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba(0,0,0,.2); display: inline-block; margin: 0 20px 20px 0; vertical-align: top; max-width: 30%;">
-    <img src="{{interaccion.imagen.url}}" width="100%"><br><br><br>
+<img src="{{interaccion.imagen.url}}" width="100%"><br><br>
+
+<b>Ciudad:</b> <h4><li><span class="underlined">{{interaccion.ciudad}}</span></li></h4><br>
+
+<b>Pais:</b> <li>{{interaccion.pais}}</li><br>
 
 <b>Fecha de fotografía:</b> <li>{{interaccion.fecha}}</li><br>
 
 <b>Autor de fotografía: </b><li>{{interaccion.autor}}</li><br>
 
-<b>Descripción:</b><li>{{interaccion.descripcion}}</li><br></div>
+<b>Descripción:</b><li>{{interaccion.descripcion}}</li><br>
+
+<h5><td><a href="{% url 'editar_item_interacciones' interaccion.id %}">Editar</a></td>   -  
+<td><a href="{% url 'eliminar_item_interacciones' interaccion.id %}">Eliminar</a></td></h5>
+
+</div>
 
 {% endfor %}
-
-</ul>
 {% endblock contenido_base %}

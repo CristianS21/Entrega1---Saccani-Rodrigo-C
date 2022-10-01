@@ -5,20 +5,27 @@
 <div style="padding-top: 100px;"></div>
 <div style="padding-left: 107px;">
 
-
+    <h4>Resultados de tu búsqueda: </h4><br><br>
     {% for planta in plantas %}
 
-<p>Graffitis de: <b>{{planta.ciudad}}</b>, {{planta.pais}} </p>
+
 <div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba(0,0,0,.2); display: inline-block; margin: 0 20px 20px 0; vertical-align: top; max-width: 30%;">
 <img src="{{planta.imagen.url}}" width="100%"><br><br><br>
+
+<b>Ciudad:</b> <h4><li><span class="underlined">{{planta.ciudad}}</span></li></h4><br>
+
+<b>Pais:</b> <li>{{planta.pais}}</li><br>
 
 
 <b>Fecha de fotografía:</b> <li>{{planta.fecha}}</li><br>
 
 <b>Autor de fotografía: </b><li>{{planta.autor}}</li><br>
 
-<b>Descripción:</b><li>{{planta.descripcion}}</li><br></div>
+<b>Descripción:</b><li>{{planta.descripcion}}</li><br>
 
+<h5><td><a href="{% url 'editar_item_plantas' planta.id %}">Editar</a></td>   -  
+    <td><a href="{% url 'eliminar_item_plantas' planta.id %}">Eliminar</a></td></h5>
+    </div>
 {% endfor %}
 
 </ul>
