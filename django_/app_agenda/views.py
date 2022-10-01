@@ -1,6 +1,6 @@
 
 from django.http import HttpResponse
-from app_agenda.models import Posteo_animales, Posteo_plantas, Posteo_interacciones 
+from app_agenda.models import Posteo_animales, Posteo_plantas, Posteo_interacciones
 from django.shortcuts import render, HttpResponse, redirect, reverse 
 from app_agenda.forms import posteo_formulario_animales, posteo_formulario_plantas, UserRegisterForm, UserUpdateForm, AvatarFormulario, posteo_formulario_interacciones
 from django.views.generic import UpdateView
@@ -17,9 +17,7 @@ from django.urls import reverse_lazy
 def inicio (request):
     return render (request, "app_agenda/plantilla_inicio.html")
 
-@login_required
-def usuario (request):
-    return render (request, "app_agenda/plantilla_1.html")
+# VIEWS ACERCA DE MI
 
 def acerca(request):
       return render (request, "app_agenda/acerca.html")
@@ -27,7 +25,7 @@ def acerca(request):
 def contacto (request):
       return render (request, "app_agenda/contacto.html")
 
-# VIEWS de POSTEO ANIMALES 
+# VIEWS de POSTEOS: ANIMALES 
 
 @login_required
 def p_animal (request):
@@ -120,7 +118,7 @@ def editar_item_animales (request, id):
 
 
 
-#VIEWS de POSTEO PLANTAS
+#VIEWS de POSTEOS: PLANTAS
 @login_required
 def p_plantas (request):
     posteos = Posteo_plantas.objects.all()
@@ -203,7 +201,7 @@ def editar_item_plantas (request, id):
         formulario = posteo_formulario_plantas (initial=inicial)
     return render (request, "app_agenda/editar_form.html", {"formulario": formulario})
 
-# VIEWS de INTERACCIONES
+# VIEWS de POSTEOS: INTERACCIONES
 @login_required
 def p_interacciones (request):
     posteos = Posteo_interacciones.objects.all()
@@ -249,7 +247,6 @@ def buscar_interacciones (request):
 @login_required
 def editar_item_interacciones (request, id):
     interaccion_edit = Posteo_interacciones.objects.get(id=id)
- 
     if request.method == 'POST':
         formulario = posteo_formulario_interacciones (request.POST,request.FILES)
 

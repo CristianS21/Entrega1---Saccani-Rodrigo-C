@@ -9,9 +9,9 @@ Cada posteo se destacará en su sección luciendo la siguiente información: Ciu
 
 La temática general se subdivide en tres secciones:
 
-INTERACCIONES: obras que integren humanos con animales/plantas.
-ANIMALES.
-PLANTAS.
+* INTERACCIONES: obras que integren humanos con animales/plantas.
+* ANIMALES.
+* PLANTAS.
 
 Link de video explicado: 
 xxxxxxxxxxxxx loom
