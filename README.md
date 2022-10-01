@@ -4,7 +4,7 @@ Nombre del proyecto:
 ArteBio: paredes que hablan, ciudades que dicen.
 
 Descripción del proyecto:
-El proyecto en formato blog tiene por intención que los usuarios registrados puedan interactuar con posteos propios o ajenos, relacionados con obras artísticas de contenido biológico (específicamente graffitis o murales) asociados a la ciudad a la que pertenecen. 
+El proyecto en formato blog tiene por intención que los usuarios registrados puedan interactuar con posteos propios o ajenos, relacionados con obras artísticas de contenido "naturaleza" (específicamente graffitis o murales) asociados a la ciudad a la que pertenecen y datos afines. 
 Cada posteo se destacará en su sección luciendo la siguiente información: Ciudad, País, Fecha de la fotografía, Autor de la fotografía y Descripción, pensado como un espacio para darle un marco contextual a la foto, con un espacio acotado a doscientos caracteres.
 
 La temática general se subdivide en tres secciones:
@@ -20,9 +20,9 @@ Composición del proyecto:
 El proyecto se compone de una única aplicación en la cual se integran los archivos fundamentales.
 
 * Models.py:
-En este archivo podemos encontrar el desarrollo de los modelos de datos usados en el backend (interacciones, animales, plantas, avatar).
+En este archivo se encuentra el desarrollo de los modelos de datos usados en el backend (interacciones, animales, plantas, avatar).
 * Forms.py:
-En este archivo podemos encontrar las estructuras de formularios utilizados para los posteos de las tres secciones de la app, para el usuario y su avatar.
+En este archivo se encuentran las estructuras de formularios utilizados para los posteos de las tres secciones de la app, para el usuario y su avatar.
 * Urls.py:
 Contiene las rutas de navegabilidad de la aplicación, estructuradas por modelos.
 * Views.py:
@@ -38,5 +38,5 @@ Algunas consideraciones:
 Solo los usuarios registrados y logueados podrán acceder al material de la página.
 
 
-Creador: Rodrigo C. Saccani.
+Creador: R Cristian Saccani.
 DNI. 32.195.869

@@ -18,8 +18,7 @@
     <title>Document</title>
 </head>
 <body>
-   
-    
+      
     {% if mensaje %}
    <h4> <span > 😀 Felicitaciones {{user}}!!! {{mensaje}}</span></h4>
         <!-- Thumbnails -->
@@ -60,9 +59,12 @@
     {% endif %}
     
     {% if gracias %}
-    <h4><span > 😀 <b>Bienvenida/o {{user}}</b>! {{gracias}}</span></h4>
+    <div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba(0,0,0,.2); display: block; margin: 50px auto; width: 400px; text-align: center;">
+      <h4> <span style="display: block; font-size: 100px; margin-bottom: 20px;"> 😀 </span><b>Bienvenida/o {{user}}! {{gracias}} </h4>
+      </div>  
+   
    <!-- Thumbnails -->
-   <div class="container thumbs">
+   
     <div class="col-sm-6 col-md-4">
       <div class="thumbnail">
         <img src="{% static 'app_agenda/imagenes/fija.jpg' %}" alt="" class="img-circle">
@@ -92,20 +94,23 @@
           <h3 class="text-center">Plantas</h3>
            
           <p class="text-center">Etiam at ligula et tellus ullamcorper ultrices. In fermentum, lorem non cursus porttitor, diam urna accumsan lacus, sed interdum wisi nibh nec nisl. Ut tincidunt volutpat urna quis dolor a felis to make a type specimen book. It has survived congue vehicula. 
-            <br><br> <a href="{% url 'p_plantas' %}" class="btn btn-primary">Ingresar</a></p>
+           <a href="{% url 'p_plantas' %}" class="btn btn-primary">Ingresar</a></p>
         </div>
       </div>
     </div>
     {% endif %}
     
     {% if error1 %}
-    <h4><span > 🙄 Cuidado !!! {{error1}}</span></h4><br>
- <a href="{% url 'Login' %}" class="btn btn-primary">Iniciá sesión</a></p>
+    <div style="padding:20px; background: rgb(218, 245, 205); border-radius:8px; box-shadow: 0 3px 12px 0 rgba
+  (0,0,0,.2); display: block; margin: 50px auto; width: 400px; text-align: center;">
+  <h4> <span style="display: block; font-size: 100px; margin-bottom: 20px;"> 🙄 </span>Cuidado !!! <br> Hasta la {{error1}}</h4>
+  </div>  
+  <div style="text-align: center">
+  <a href="{% url 'Login' %}" class="btn btn-primary">Iniciá sesión</a></p></div> 
     {% endif %}
-    
-     
+         
 
-    <br><br>
+   
 </body>
 </html>
 {% endblock contenido_base %}
