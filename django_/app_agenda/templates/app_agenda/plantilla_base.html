@@ -71,10 +71,38 @@
 
 
   
-    <!-- Footer -->
-    <div class="footer text-center">
-        <p>&copy;  Hecho por R. Cristian S. - Proyecto Final Coderhouse > <b>Python</b> (framework <b>Django</b>) - 2022 </p>
-    </div><!-- End Footer -->
+ 
+ <!-- Footer-->
+ <footer class="footer bg-light">
+  <div class="container">
+    <p class="text-center" style="border-bottom: solid 1px #ccc; padding-bottom: 20px; margin-bottom: 20px;">&copy;  Hecho por R. Cristian S. - Proyecto Final Coderhouse > <b>Python</b> (framework <b>Django</b>) - 2022 </p>
+      <div class="row">
+          <div class="col-lg-6 h-100  text-lg-start my-auto">
+              <ul class="list-inline mb-2">
+                  <li class="list-inline-item"><a href="{% url 'acerca' %}">Acerca de mí</a></li>
+                  <li class="list-inline-item">⋅</li>
+                  <li class="list-inline-item"><a href="{% url 'contacto' %}">Contacto</a></li>
+                
+              </ul>
+              <p class="text-muted small mb-4 mb-lg-0">&copy; ArteBio</p>
+          </div>
+          <div class="col-lg-6 h-100 text-right text-lg-end my-auto">
+              <ul class="list-inline mb-0">
+                  <li class="list-inline-item me-4">
+                    <a href="https://www.facebook.com/cristian.saccani.3/" target="_blank" ><i class="fab fa-facebook"></i></a>
+                  </li>
+                  <li class="list-inline-item me-4">
+                    <a href="https://www.instagram.com/natgeo/"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li class=" list-inline-item">
+                      <a href="https://www.instagram.com/cristian.saccani.3/" target="_blank"><i class="fab fa-instagram"></i></a>
+
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <!-- // <script src="https://code.jquery.com/jquery.js"></script> -->
@@ -83,36 +111,7 @@
     <script src="{% static 'app_agenda/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'app_agenda/js/bootshape.js' %}"></script>
 
-    <!-- Footer-->
-    <footer class="footer bg-light">
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-6 h-100  text-lg-start my-auto">
-                  <ul class="list-inline mb-2">
-                      <li class="list-inline-item"><a href="{% url 'acerca' %}">Acerca de mí</a></li>
-                      <li class="list-inline-item">⋅</li>
-                      <li class="list-inline-item"><a href="{% url 'contacto' %}">Contacto</a></li>
-                    
-                  </ul>
-                  <p class="text-muted small mb-4 mb-lg-0">&copy; ArteBio</p>
-              </div>
-              <div class="col-lg-6 h-100 text-right text-lg-end my-auto">
-                  <ul class="list-inline mb-0">
-                      <li class="list-inline-item me-4">
-                        <a href="https://www.facebook.com/cristian.saccani.3/" target="_blank" ><i class="fab fa-facebook"></i></a>
-                      </li>
-                      <li class="list-inline-item me-4">
-                        <a href="https://www.instagram.com/natgeo/"><i class="fab fa-twitter"></i></a>
-                      </li>
-                      <li class=" list-inline-item">
-                          <a href="https://www.instagram.com/cristian.saccani.3/" target="_blank"><i class="fab fa-instagram"></i></a>
-  
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </footer>
+    
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
   </body>
 </html>
