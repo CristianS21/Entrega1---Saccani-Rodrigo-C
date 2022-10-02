@@ -14,7 +14,8 @@ La temática general se subdivide en tres secciones:
 * PLANTAS.
 
 Link de video explicado: 
-xxxxxxxxxxxxx loom
+https://www.loom.com/share/8e529a81171f41a384985f452c19d4b2 (Parte 1/2= 5 minutos)
+https://www.loom.com/share/9d0e24e8afd249cb8e4af247e756853c (Parte 2/2= 2.34 minutos)
 
 Composición del proyecto:
 El proyecto se compone de una única aplicación en la cual se integran los archivos fundamentales.
